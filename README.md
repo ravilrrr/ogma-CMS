@@ -21,7 +21,7 @@ Components, small text blocks, PHP executable
 
 ### Work in Progress.
 
-i18n 
+i18n  
 Galleries  
 Plugins  
 Backups.  
