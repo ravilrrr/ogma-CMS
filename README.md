@@ -10,11 +10,13 @@ Boostrap backend, bootswatch themeable.
 SQL like queries on all tables.  
 Easy to Theme, with configuration pages.  
 Multi User  
+Multi Language Admin Panel  
+Form Builder  
 Website Pages  
-Blogging articles,  
+Blogging ,  
 Menu Manager, multi menus, multi level.  
-Built in Shortcodes for Youtube/Vimeo Vids, Maps, RSS feeds, Google charts and more  
-File manager.  
+Shortcodes ( Youtube/Vimeo Vids, Maps, RSS feeds, Google charts and more )   
+File Manager.  
 Snippets, small HTML blocks  
 Components, small text blocks, PHP executable  
 Multi Language Backend
