@@ -1,7 +1,7 @@
-ogma-CMS
+OGMA-CMS
 ========
 
-Ogma CMS - XML Based Flat File CMS system
+OGMA CMS - XML Based Flat File CMS system
 
 ### Features 
 
