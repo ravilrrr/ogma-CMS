@@ -3,7 +3,7 @@ OGMA-CMS
 
 OGMA CMS - XML Based Flat File CMS system
 
-![image](http://www.ogmacms.com/dpcimages/menus.jpg)
+![image](http://www.ogmacms.com/docimages/menus.jpg)
 
 ### Features 
 
