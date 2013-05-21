@@ -3,8 +3,6 @@ OGMA-CMS
 
 OGMA CMS - XML Based Flat File CMS system
 
-![image](http://www.ogmacms.com/docimages/menus.jpg)
-
 ### Features 
 
 XML Based, no database required.  
@@ -29,3 +27,17 @@ Multi Language Backend
 Galleries  
 Plugins  
 Backups.  
+
+## Progress
+
+### Menu Manager
+![image](http://www.ogmacms.com/docimages/menus.jpg)
+
+### Page Editor (EPICEditor Markdown editor) 
+![image](http://www.ogmacms.com/docimages/editor.jpg)
+
+### Blog Entry
+![image](http://www.ogmacms.com/docimages/blog.jpg)
+
+### Web Settings
+![image](http://www.ogmacms.com/docimages/settings.jpg)
