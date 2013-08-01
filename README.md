@@ -13,7 +13,7 @@ Multi User
 Multi Language Admin Panel  
 Form Builder  
 Website Pages  
-Blogging ,  
+Blogging Pages
 Menu Manager, multi menus, multi level.  
 Shortcodes ( Youtube/Vimeo Vids, Maps, RSS feeds, Google charts and more )   
 File Manager.  
