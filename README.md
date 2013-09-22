@@ -13,15 +13,15 @@ Multi User
 Multi Language Admin Panel  
 Form Builder  
 Website Pages  
-Blogging Pages
+Blogging Pages  
 Menu Manager, multi menus, multi level.  
 Shortcodes ( Youtube/Vimeo Vids, Maps, RSS feeds, Google charts and more )   
 File Manager.  
 Snippets, small HTML blocks  
 Components, small text blocks, PHP executable  
-Multi Language Backend
-Custom Fields - Customize all internal tables with your own fields
-Backup - Backup your site data. 
+Multi Language Backend  
+Custom Fields - Customize all internal tables with your own fields  
+Backup - Backup your site data.  
 
 
 ### Work in Progress.
