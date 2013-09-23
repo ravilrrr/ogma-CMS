@@ -44,4 +44,4 @@ Plugins
 ![image](http://www.ogmacms.com/docimages/pages.jpg)
 
 ### Web Settings
-![image](http://www.ogmacms.com/docimages/settings.jpg)
+![image](http://www.ogmacms.com/docimages/settings2.jpg)
