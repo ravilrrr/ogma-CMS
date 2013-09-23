@@ -31,14 +31,17 @@ Plugins
 
 ## Progress
 
+### Dashboard
+![image](http://www.ogmacms.com/docimages/dashboard.jpg)
+
 ### Menu Manager
 ![image](http://www.ogmacms.com/docimages/menus.jpg)
 
 ### Page Editor (EPICEditor Markdown editor) 
 ![image](http://www.ogmacms.com/docimages/editor.jpg)
 
-### Blog Entry
-![image](http://www.ogmacms.com/docimages/blog.jpg)
+### Pages
+![image](http://www.ogmacms.com/docimages/pages.jpg)
 
 ### Web Settings
 ![image](http://www.ogmacms.com/docimages/settings.jpg)
