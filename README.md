@@ -37,7 +37,7 @@ Plugins
 ### Menu Manager
 ![image](http://www.ogmacms.com/docimages/menus.jpg)
 
-### Page Editor (EPICEditor Markdown editor) 
+### Page Editor 
 ![image](http://www.ogmacms.com/docimages/editor.jpg)
 
 ### Pages
