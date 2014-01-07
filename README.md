@@ -32,7 +32,7 @@ Plugins
 ## Progress
 
 ### Dashboard
-![image](http://www.ogmacms.com/docimages/dashboard.jpg)
+![image](http://www.ogmacms.com/docimages/dashboard.png)
 
 ### Menu Manager
 ![image](http://www.ogmacms.com/docimages/menus.jpg)
