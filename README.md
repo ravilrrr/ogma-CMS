@@ -5,31 +5,19 @@ OGMA CMS - XML Based Flat File CMS system
 
 ### Features 
 
-XML Based, no database required.  
-Boostrap backend.   
-SQL like queries on all tables.  
-Easy to Theme, with configuration pages.  
-Multi User  
-Multi Language Admin Panel  
-Form Builder  
-Website Pages  
-Blogging Pages  
-Menu Manager, multi menus, multi level.  
-Shortcodes ( Youtube/Vimeo Vids, Maps, RSS feeds, Google charts and more )   
-File Manager.  
-Snippets, small HTML blocks  
-Components, small text blocks, PHP executable  
-Multi Language Backend  
-Custom Fields - Customize all internal tables with your own fields  
-Backup - Backup your site data.  
+Built with Bootstrap - Built using Bootstrap. 
+Easy to Install - Up and running in 5 minutes. 
+Multi User - Multiple users with Admin/Author access. Fullt control what par tof the system Authors can use
+Customizable - User created Themes & plugins. 
+Customfields - Can be added to all internal tables enhancing the functionality
+Secure - Your site and data are secured using industry standard methods
+SEO Friendly - Indiviual SEO settings for each Page/Blog entry or use site wide settings
+Backup and Restore - Easily backup and restore your site data and settings. 
+Free - Licenced under GPL v3 which means its Free
 
 
-### Work in Progress.
 
-Galleries  
-Plugins    
-
-## Progress
+## Screenshots
 
 ### Dashboard
 ![image](http://www.ogmacms.com/docimages/dashboard.png)
