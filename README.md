@@ -34,7 +34,7 @@ OGMA comes preconfigured with a Bootstrap Theme which can be quickly customized 
 ![image](http://www.ogmacms.com/docimages/dashboard.png)
 
 ### Menu Manager
-![image](http://www.ogmacms.com/docimages/menus.png)
+![image](http://www.ogmacms.com/docimages/menu.png)
 
 ### Page Editor 
 ![image](http://www.ogmacms.com/docimages/editor.png)
