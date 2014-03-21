@@ -7,7 +7,7 @@ OGMA CMS - XML Based Flat File CMS system
 
 * Built with Bootstrap - Built using Bootstrap.  
 * Easy to Install - Up and running in 5 minutes.  
-* Multi User - Multiple users with Admin/Author access. Fullt control what par tof the system Authors can use 
+* Multi User - Multiple users with Admin/Author access. Full control what part of the system Authors can use 
 * Customizable - User created Themes & plugins.  
 * Customfields - Can be added to all internal tables enhancing the functionality 
 * Secure - Your site and data are secured using industry standard methods 
@@ -15,6 +15,13 @@ OGMA CMS - XML Based Flat File CMS system
 * Backup and Restore - Easily backup and restore your site data and settings.  
 * Free - Licenced under GPL v3 which means its Free 
 
+### Plugins-ins
+OGMA comes with the following plugins to get you sterted.
+
+- Gallery - Image gallery plugin 
+- Testimonials - Testimonial management
+- Comments - DisQus comment system for Blog posts. 
+- Twitterfeed - Easily add a twitter feed to your site. 
 
 
 ## Screenshots
