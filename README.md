@@ -6,6 +6,7 @@ OGMA CMS - XML Based Flat File CMS system
 ### Features 
 
 * Built with Bootstrap - Built using Bootstrap.  
+* BootSwatch Themes - Customize your site with built in themes
 * Easy to Install - Up and running in 5 minutes.  
 * Multi User - Multiple users with Admin/Author access. Full control what part of the system Authors can use 
 * Customizable - User created Themes & plugins.  
@@ -16,12 +17,15 @@ OGMA CMS - XML Based Flat File CMS system
 * Free - Licenced under GPL v3 which means its Free 
 
 ### Plugins-ins
-OGMA comes with the following plugins to get you sterted.
+OGMA comes with the following plugins to get you started.
 
 - Gallery - Image gallery plugin 
 - Testimonials - Testimonial management
 - Comments - DisQus comment system for Blog posts. 
 - Twitterfeed - Easily add a twitter feed to your site. 
+
+### Themes
+OGMA comes preconfigured with a Bootstrap Theme which can be quickly customized with any of the current BootSwatch Themes. 
 
 
 ## Screenshots
@@ -30,13 +34,13 @@ OGMA comes with the following plugins to get you sterted.
 ![image](http://www.ogmacms.com/docimages/dashboard.png)
 
 ### Menu Manager
-![image](http://www.ogmacms.com/docimages/menus.jpg)
+![image](http://www.ogmacms.com/docimages/menus.png)
 
 ### Page Editor 
-![image](http://www.ogmacms.com/docimages/editor.jpg)
+![image](http://www.ogmacms.com/docimages/editor.png)
 
 ### Pages
-![image](http://www.ogmacms.com/docimages/pages.jpg)
+![image](http://www.ogmacms.com/docimages/pages.png)
 
 ### Web Settings
-![image](http://www.ogmacms.com/docimages/settings.jpg)
+![image](http://www.ogmacms.com/docimages/settings.png)
