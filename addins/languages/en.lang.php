@@ -185,7 +185,7 @@ $lang = array
 
     "BLOG_TAGCLOUD" =>      "TAGS",
     "BLOG_ARCHIVES" =>      "Archives",
-    "BLOG_CATEGORIES" =>    "Categories",
+    "BLOG_CATEGORIES" =>    "Category",
 
 
 // fields

@@ -163,6 +163,7 @@ $record = $table->getFullRecord($id);
 		$ogmaForm->displayField('post-status',__('PUBLISHED'), 'dropdown', array(__("PUBLISHED"),__("DRAFT")),$record['status']);
 		$ogmaForm->displayField('post-author',__('AUTHOR'), 'text', '',$record['author']);
 		$ogmaForm->displayField('post-comments',__('COMMENTS'), 'yesno' , '',$record['comments']);
+    $ogmaForm->displayField('post-category',__('BLOG_CATEGORIES'), 'text' , '',$record['category']);
 
     $ogmaForm->createTabPane('meta',false);
     $ogmaForm->displayField('post-metat',__('METATITLE'), 'textlong', '',$record['metat']);
@@ -179,7 +180,6 @@ $record = $table->getFullRecord($id);
     if ($action=="edit") $ogmaForm->formButtons(true);
     if ($action=="create") $ogmaForm->formButtons(false);
     
-    $ogmaForm->formButtons(true);
     $ogmaForm->endForm();
 
     $ogmaForm->show();

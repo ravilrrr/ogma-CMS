@@ -21,7 +21,7 @@ class Core {
 	public static $site = array();
 	public static $settings = array(); 
 	public static $schema = array(
-			"blog"       => array('slug','title','pubdate','author','tags','status','comments','metat','metad','metak','content','id'),
+			"blog"       => array('slug','title','pubdate','author','tags','status','comments','metat','metad','metak','content','category','id'),
 			"components" => array('slug','content','active','desc','id'),
 			"galleries"  => array('galleryname','id'),
 			"menus"      => array('menuname','id'),
