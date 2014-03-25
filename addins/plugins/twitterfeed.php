@@ -110,7 +110,7 @@ class TwitterFeed {
 
             $ogmaForm->endTabs();
             
-            $ogmaForm->formButtons();
+            $ogmaForm->formButtons(false, false);
             $ogmaForm->endForm();
 
             $ogmaForm->show();

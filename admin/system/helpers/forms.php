@@ -148,7 +148,7 @@ class Form{
     * @param bool $type 
     * @param boolean $active Set true for active Tab
     */
-	public  function formButtons($type=false){
+	public  function formButtons($type=false, $cancel = true){
 		$this->formOutput .= '<div class="form-group"><div class="col-sm-offset-2 col-sm-10">';
         if ($type){
         	$this->formOutput .= '<div class="btn-group"><button type="submit" name="submitmain" class="btn btn-primary">'.__("SAVE").'</button><button type="submit" name="submitclose" class="btn btn-primary">&amp; Close</button></div> ';
@@ -156,9 +156,11 @@ class Form{
  			$this->formOutput .= '<button type="submit" name="submitmain" class="btn btn-primary">'.__("SAVE").'</button>';      	
         }
         $tbl = Core::getTable();
-        if ($tbl!=="") $tbl='tbl='.$tbl.'&amp;';
-        $this->formOutput .= '<button type="reset" class="btn btn-default" onclick="location.href=\''.Core::getFilenameId().'.php?'.$tbl.'action=view\'"  >'.__("CANCEL").'</button>';
-    	$this->formOutput .= '</div>';
+        if ($cancel){
+	        if ($tbl!=="") $tbl='tbl='.$tbl.'&amp;';
+	        $this->formOutput .= '<button type="reset" class="btn btn-default" onclick="location.href=\''.Core::getFilenameId().'.php?'.$tbl.'action=view\'"  >'.__("CANCEL").'</button>';
+	    	$this->formOutput .= '</div>';
+	    }
 	} 
 
 
