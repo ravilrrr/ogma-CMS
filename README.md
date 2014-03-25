@@ -8,6 +8,27 @@ NOTE: this is the initial Beta release.
 Please log any issues in the tracker. 
 Gallery plugin is not complete !!
 
+###Installation 
+
+####Requirements 
+Apache with Mod Rewrite  
+PHP 5.2.3 or higher 
+ - SimpleXML module
+
+Note: we do not currently support any other platforms, but may in the future.
+
+## Setup
+
+* Download the latest version of OGMA CMS and extract the contents of the Zip File.  
+* Upload by ftp the contents of the zip to your server.
+* The following files/folders need to be writeable by you web server user (try CHMODing to 755) 
+
+/sitemap.xml
+/data
+/backups
+/addins/plugins
+
+
 ### Features 
 
 * Built with Bootstrap - Built using Bootstrap.  
