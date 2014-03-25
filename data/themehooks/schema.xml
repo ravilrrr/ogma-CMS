@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<root><options><id>1</id><private><![CDATA[1]]></private><cache><![CDATA[id|hook|type|action|order]]></cache></options><fields><hook><![CDATA[slug]]></hook><type><![CDATA[text]]></type><order><![CDATA[spinner]]></order><action><![CDATA[dropdown]]></action><id>int</id></fields></root>

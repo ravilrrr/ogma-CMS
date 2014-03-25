@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<root><slug><![CDATA[blog]]></slug><route><![CDATA[/blog/:alpha]]></route><desc><![CDATA[Single Blog Post]]></desc><page><![CDATA[blog]]></page><id>2</id></root>

@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<root><item><name><![CDATA[Welcome]]></name><title><![CDATA[Welcome]]></title><attr><![CDATA[Welcome]]></attr><id>1</id><url><![CDATA[]]></url><order><![CDATA[1]]></order><parent><![CDATA[0]]></parent></item><item><name><![CDATA[Blog]]></name><title><![CDATA[Blog]]></title><attr><![CDATA[Blog]]></attr><id>4</id><url><![CDATA[blog]]></url><order><![CDATA[2]]></order><parent><![CDATA[0]]></parent></item></root>

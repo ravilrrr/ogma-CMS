@@ -1,0 +1,828 @@
+/* Custom container */
+
+body{
+  background-color:#666;
+}
+.container{
+  background-color:#fff;
+}
+.mainbody{
+  min-height:400px;
+}
+.container-full {
+  margin: 0 auto;
+  width: 99%;
+}
+.no100{
+  width:30px;
+}
+.caption p {height:100px;}
+
+.notifications{
+position: absolute;
+top: -20px;
+width: 50%;
+right: 15px;
+}
+
+#dropzone {
+margin: 30px 0;
+-webkit-box-shadow: 0 0 50px rgba(0,0,0,0.13);
+box-shadow: 0 0 50px rgba(0,0,0,0.13);
+padding: 4px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+}
+
+.breadcrumb{
+  margin-top:10px;
+}
+.triangle-button {
+  position: absolute;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+  top: 0;
+  right: 0;
+  color: #fff;
+  overflow: hidden;
+  height: 32px;
+  width: 32px;
+  text-shadow: none; }
+  /* line 33, /home/andrei/core-admin-release/core-admin/source/stylesheets/triangle_button.scss */
+  .triangle-button i, .triangle-button .inner {
+    z-index: 1;
+    position: absolute;
+    right: 3px;
+    top: 2px; }
+  /* line 40, /home/andrei/core-admin-release/core-admin/source/stylesheets/triangle_button.scss */
+  .triangle-button:before {
+    content: '';
+    display: inline-block;
+    border-right: 32px solid;
+    border-bottom: 32px solid transparent;
+    position: absolute;
+    top: 0;
+    right: 0; }
+    
+.addbutton{
+  padding-top:15px;
+}
+.help-block {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  color: #737373;
+  font-size: 12px;
+  font-style: italic;
+}
+.devbar{
+  background-color:#f00;
+  color:#fff;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.console{
+  position:fixed;
+  bottom:50px;
+  width: 100%;
+  height: 100px;
+}
+
+.editor-toolbar{
+  padding-bottom: 10px;
+}
+
+/*
+ * Side navigation
+ *
+ * Scrollspy and affixed enhanced navigation to highlight sections and secondary
+ * sections of docs content.
+ */
+
+/* By default it's not affixed in mobile views, so undo that */
+.bs-sidebar.affix {
+  position: static;
+}
+
+/* First level of nav */
+.bs-sidenav {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-top:    10px;
+  padding-bottom: 10px;
+  text-shadow: 0 1px 0 #fff;
+  background-color: #f7f5fa;
+  border-radius: 5px;
+}
+
+/* All levels of nav */
+.bs-sidebar .nav > li > a {
+  display: block;
+  padding: 2px 10px;
+}
+
+.bs-sidebar .nav > .nav-header  {
+  display: block;
+  padding: 5px 10px;
+  font-weight: bold;
+} 
+
+.bs-sidebar .nav > li > a:hover,
+.bs-sidebar .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #e5e3e9;
+  border-right: 1px solid #dbd8e0;
+}
+.bs-sidebar .nav > .active > a,
+.bs-sidebar .nav > .active:hover > a,
+.bs-sidebar .nav > .active:focus > a {
+  background-color: #428bca;
+  border-right: 1px solid #563d7c;
+  color: white;7c;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-sidebar .nav .nav {
+  display: none; /* Hide by default, but at >768px, show it */
+  margin-bottom: 8px;
+}
+.bs-sidebar .nav .nav > li > a {
+  padding-top:    3px;
+  padding-bottom: 3px;
+  padding-left: 30px;
+  font-size: 90%;
+}
+
+.matrix .control-label {
+  width:100px;
+}
+
+.matrix .controls {
+  margin-left:105px;
+}
+
+.textedit{
+  font-family: monospace;
+  width:100%;
+}
+
+.editor{
+  font-family: monospace;
+  width:100%;
+}
+#validate-status{
+  margin-left: 180px;
+  margin-top: -16px;
+  color: red;
+  font-size: 10px;
+}
+
+td .form-group{
+  margin-bottom:0px;
+}
+
+.tab-content{
+	overflow:visible;
+}
+
+.hidden{
+  display:none;
+}
+
+table select{
+  margin-bottom:0px;
+}
+
+.shortcuts {
+	text-align: center;	
+}
+
+.shortcuts .shortcut { 
+	width: 22.50%;
+	display: inline-block;
+	padding: 12px 0;
+	margin: 0 .9% 1em;
+	vertical-align: top;	
+	text-decoration: none;
+	border-radius: 5px;
+  float:left;
+}
+.nav-list [class^="icon-"], .nav-list [class*=" icon-"] {
+margin-right: 2px;
+background-image: none;
+}
+.shortcuts .shortcut .shortcut-icon {
+	margin-top: .25em;
+	margin-bottom: .25em;
+	background-image: none;
+	font-size: 32px;
+}
+
+.shortcuts .shortcut-label {
+	display: block;
+	
+	font-weight: 400;
+
+}
+
+.version{
+	font-size:10px;
+}
+
+.well{
+	border-top:none;
+}
+
+.nav{
+	margin-bottom:0px;
+}
+
+
+
+/**
+* editor
+**/
+#fullscreenedit{
+  top: 0px;
+  left: 0px;
+  bottom: 0;
+  right: 0px;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  height:100%;
+  z-index: 1000;
+  background-color: #b1b1b1;
+  display: none;
+}
+#editwrapper{
+  width:100%;
+  position: absolute;
+  margin-right: 5px;
+  top: 50px;
+  left: 10px;
+  bottom: 10px;
+}
+#editor{
+  position: absolute;
+  margin-right: 10px;
+  top: 0px;
+  left: 10px;
+  bottom: 0px;
+  right: 50%;
+  width: 49%;
+  font-family: monospace;
+  background-color: #333;
+}
+
+#editor textarea{
+  width: 100%;
+  height:100%;
+}
+#preview{
+position: absolute;
+margin-left: 5px;
+padding: 20px;
+left: 50%;
+bottom: 0px;
+right: 10px;
+top: 0px;
+width: 48%;
+overflow: auto;
+background-color: #fff;
+}
+#editortoolbar{
+  padding-top:10px;
+  padding-left:20px;
+}
+
+#fullscreenedit .CodeMirror{
+  width:50%;
+  height:100%;
+  background-color: #000;
+  color:#fff;
+}
+
+#fullscreenedit .CodeMirror-scroll {
+    height:100%;
+  }
+/**
+ * Nestable
+ */
+
+.dd { position: relative; display: block; margin: 0; padding: 0; max-width: 600px; list-style: none; font-size: 13px; line-height: 20px; }
+
+.dd-list { display: block; position: relative; margin: 0; padding: 0; list-style: none; }
+.dd-list .dd-list { padding-left: 30px; }
+.dd-collapsed .dd-list { display: none; }
+
+.dd-item,
+.dd-empty,
+.dd-placeholder { display: block; position: relative; margin: 0; padding: 0; min-height: 20px; font-size: 13px; line-height: 20px; }
+
+.dd-handle { display: block; height: 30px; margin: 5px 0; padding: 5px 10px; color: #333; text-decoration: none; font-weight: bold; border: 1px solid #ccc;
+    background: #fafafa;
+    background: -webkit-linear-gradient(top, #fafafa 0%, #eee 100%);
+    background:    -moz-linear-gradient(top, #fafafa 0%, #eee 100%);
+    background:         linear-gradient(top, #fafafa 0%, #eee 100%);
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
+    box-sizing: border-box; -moz-box-sizing: border-box;
+}
+.dd-handle:hover { color: #2ea8e5; background: #fff; cursor: move;}
+
+.dd-item > button { display: block; position: relative; cursor: pointer; float: left; width: 25px; height: 20px; margin: 5px 0; padding: 0; text-indent: 100%; white-space: nowrap; overflow: hidden; border: 0; background: transparent; font-size: 12px; line-height: 1; text-align: center; font-weight: bold; }
+.dd-item > button:before { content: '+'; display: block; position: absolute; width: 100%; text-align: center; text-indent: 0; }
+.dd-item > button[data-action="collapse"]:before { content: '-'; }
+
+.dd-placeholder,
+.dd-empty { margin: 5px 0; padding: 0; min-height: 30px; background: #f2fbff; border: 1px dashed #b6bcbf; box-sizing: border-box; -moz-box-sizing: border-box; }
+.dd-empty { border: 1px dashed #bbb; min-height: 100px; background-color: #e5e5e5;
+    background-image: -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff), 
+                      -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-image:    -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff), 
+                         -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-image:         linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff), 
+                              linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+}
+
+.dd-dragel { position: absolute; pointer-events: none; z-index: 9999; }
+.dd-dragel > .dd-item .dd-handle { margin-top: 0; }
+.dd-dragel .dd-handle {
+    -webkit-box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
+            box-shadow: 2px 4px 6px 0 rgba(0,0,0,.1);
+}
+
+/**
+ * Nestable Extras
+ */
+
+.nestable-lists { display: block; clear: both; padding: 30px 0; width: 100%; border: 0; border-top: 2px solid #ddd; border-bottom: 2px solid #ddd; }
+
+#nestable-menu { padding: 0; margin: 20px 0; }
+
+#nestable-output { display:none; width: 100%; height: 7em; font-size: 0.75em; line-height: 1.333333em; font-family: Consolas, monospace; padding: 5px; box-sizing: border-box; -moz-box-sizing: border-box; }
+
+#nestable2 .dd-handle {
+    color: #fff;
+    border: 1px solid #999;
+    background: #bbb;
+    background: -webkit-linear-gradient(top, #bbb 0%, #999 100%);
+    background:    -moz-linear-gradient(top, #bbb 0%, #999 100%);
+    background:         linear-gradient(top, #bbb 0%, #999 100%);
+}
+#nestable2 .dd-handle:hover { background: #bbb; }
+#nestable2 .dd-item > button:before { color: #fff; }
+
+@media only screen and (min-width: 700px) { 
+
+    .dd { float: left; width: 98%; }
+    .dd + .dd { margin-left: 2%; }
+
+}
+
+.dd-hover > .dd-handle { background: #2ea8e5 !important; }
+
+
+.dd3-content { display: block; height: 30px; margin: 5px 0; padding: 5px 10px 5px 40px; color: #333; text-decoration: none; font-weight: bold; border: 1px solid #ccc;
+    background: #fafafa;
+    background: -webkit-linear-gradient(top, #fafafa 0%, #eee 100%);
+    background:    -moz-linear-gradient(top, #fafafa 0%, #eee 100%);
+    background:         linear-gradient(top, #fafafa 0%, #eee 100%);
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
+    box-sizing: border-box; -moz-box-sizing: border-box;
+}
+.dd3-content:hover { color: #2ea8e5; background: #fff; }
+
+.dd-dragel > .dd3-item > .dd3-content { margin: 0; }
+
+.dd3-item > button { margin-left: 30px; }
+
+.dd3-handle { position: absolute; margin: 0; left: 0; top: 0; cursor: pointer; width: 30px; text-indent: 100%; white-space: nowrap; overflow: hidden;
+    border: 1px solid #aaa;
+    background: #ddd;
+    background: -webkit-linear-gradient(top, #ddd 0%, #bbb 100%);
+    background:    -moz-linear-gradient(top, #ddd 0%, #bbb 100%);
+    background:         linear-gradient(top, #ddd 0%, #bbb 100%);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.dd3-handle:before { content: '='; display: block; position: absolute; left: 0; top: 3px; width: 100%; text-align: center; text-indent: 0; color: #fff; font-size: 20px; font-weight: normal; }
+.dd3-handle:hover { background: #ddd; }
+
+
+.menu-item-settings{
+	display: block;
+	border: 1px solid #BBB;
+	margin-top: -6px;
+	padding: 5px;
+	margin-left:30px;
+}
+ .item-edit {
+	position: absolute;
+	right: -20px;
+	top: -2px;
+	display: block;
+	width: 30px;
+	height: 36px;
+	overflow: hidden;
+	text-indent: -999em;
+	border-bottom: 1px solid;
+	-webkit-border-bottom-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+.item-controls {
+	font-size: 12px;
+	position: absolute;
+	right: 10px;
+	top: -1px;
+}
+.item-controls span{
+	top: 5px;
+	display: block;
+}
+.item-type {
+color: #999;
+padding-top:6px;
+}
+.item-type span{
+  top: 5px;
+  display: inline-block;
+}
+
+.item-controls a:hover {
+cursor: pointer;
+}
+
+.item-edit:hover {
+background: transparent url(../img/arrows-dark.png) no-repeat 8px 10px;
+}
+
+.item-edit {
+background: transparent url(../img/arrows.png) no-repeat 8px 10px;
+border-bottom-color: #EEE;
+}
+
+
+.uploadarea {
+	min-height: 200px;
+	height: auto;
+	border: 4px dotted #CCC;
+	padding: 10px;
+	cursor: move;
+	margin-bottom: 10px;
+	position: relative;
+	border-image: initial;
+}
+
+
+.fm{width:100%;}
+.fm th{text-align:left;}
+
+.themegallery{
+	margin-left:5px;
+}
+.themegallery img{
+	padding-bottom:20px;
+}
+.themegallery a{
+	margin-left:45px;
+}
+
+.morethemes{
+	padding-top:30px;
+}
+
+
+.input-full{
+	width:96%;
+}
+
+
+
+.question {
+  position: absolute;
+  display: inline;
+  text-align: center;
+  width: 174px;
+  height: 78px;
+  font-size: 13px;
+  line-height: 1.5em;
+  background: url('../img/bubble.png') left top no-repeat;
+  padding: 10px 0 0 0;
+  text-shadow: 0px 1px 0px #fff;
+  margin-left: -7em;
+  margin-top: -6em;
+  opacity: 0;
+}
+
+.yes, .cancel {
+  margin-top: .5em;
+  margin-right: .5em;
+  cursor: pointer;
+  display: inline-block;
+  width: 63px;
+  height: 21px;
+  color: #fff;
+  text-shadow: 0px 1px 0px #000;
+  background: url('../img/button.png') left top no-repeat;
+}
+
+.title {
+  font-size: 30px;
+  margin-bottom: 1.5em;
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 0px 2px 0px #fff;
+}
+
+
+.spinner {
+  display: inline-block;
+  opacity: 0;
+  width: 0;
+
+  -webkit-transition: opacity 0.25s, width 0.25s;
+  -moz-transition: opacity 0.25s, width 0.25s;
+  -o-transition: opacity 0.25s, width 0.25s;
+  transition: opacity 0.25s, width 0.25s;
+}
+
+.has-spinner.active {
+  cursor:progress;
+}
+
+.has-spinner.active .spinner {
+  opacity: 1;
+  width: auto; /* This doesn't work, just fix for unkown width elements */
+}
+
+.has-spinner.btn-mini.active .spinner {
+    width: 10px;
+}
+
+.has-spinner.btn-small.active .spinner {
+    width: 13px;
+}
+
+.has-spinner.btn.active .spinner {
+    width: 16px;
+}
+
+.has-spinner.btn-large.active .spinner {
+    width: 19px;
+}
+
+
+div.spinedit { display: inline-block; position: relative; }
+input[type="text"].spinedit { 
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  width: 35px; 
+}
+div.spinedit .fa-chevron-up,
+div.spinedit .fa-chevron-down { position: relative; cursor: pointer; width: 12px; left: 8px; }
+div.spinedit .fa-chevron-up { top: -12px; }
+div.spinedit .fa-chevron-down { top: 3px; left: -4px; }
+div.spinedit { top: 5px; }
+
+.bsmContainer {
+  /* container that surrounds entire bsmSelect widget */
+}
+
+.bsmSelect {
+  /* the newly created regular 'select' */
+  display: inline;
+}
+
+.bsmOptionDisabled {
+  /* disabled options in new select */
+  color: #999;
+}
+
+.bsmHighlight {
+  /* the highlight span */
+  float: right;
+  padding: 0;
+  margin: 0 0 0 1em;
+}
+
+.bsmList {
+  /* html list that contains selected items */
+  margin: 0.25em 0 1em 0;
+  position: relative;
+  display: block;
+  padding-left: 0;
+  list-style: none;
+}
+
+.bsmListItem {
+  /* li item from the html list above */
+  position: relative;
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+  background: #ddd;
+  border: 1px solid #bbb;
+  width: auto;
+  margin: 0 0 -1px 0;
+  line-height: 1em;
+}
+
+.bsmListItem:hover {
+  background-color: #e5e5e5;
+}
+
+.bsmListItemLabel {
+  /* this is a span that surrounds the text in the item, except for the remove link */
+  padding: 5px;
+  display: block;
+}
+
+.bsmListSortable .bsmListItemLabel {
+  cursor: move;
+}
+
+.bsmListItemRemove {
+  /* the remove link in each list item */
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 5px;
+}
+
+.bsmScrollWorkaround {
+  /* Fix a bug when the 'html' element has an overflow set to either 'scroll' or 'auto' on FF. */
+   padding-bottom: 1px;
+   overflow: auto;
+}
+
+#login-container {
+  width: 340px;
+  margin: 160px auto;
+}
+#login-container label {
+  margin: 15px 0 5px 5px;
+}
+#login-container button {
+  width: 150px;
+  padding: 6px 40px 6px 40px;
+  float: left;
+  margin-top: 15px;
+}
+#login-container .checkbox {
+  margin: 23px 0 0 180px;
+}
+#login-container .btm-links {
+  text-align: center;
+  margin-top: 10px;
+}
+#login-container #create-account {
+  float: right;
+  margin-right: 13px;
+}
+#login-container #forgot-password {
+  float: left;
+  margin-left: 10px;
+}
+#account-form-container {
+  width: 460px;
+  margin: 100px auto;
+}
+#country-list {
+  width: 280px;
+}
+
+
+table.table thead .sorting,
+table.table thead .sorting_asc,
+table.table thead .sorting_desc,
+table.table thead .sorting_asc_disabled,
+table.table thead .sorting_desc_disabled {
+  cursor: pointer;
+  *cursor: hand;
+}
+
+table.table thead .sorting { background: url('../img/sort_both.png') no-repeat center right; }
+table.table thead .sorting_asc { background: url('../img/sort_asc.png') no-repeat center right; }
+table.table thead .sorting_desc { background: url('../img/sort_desc.png') no-repeat center right; }
+
+table.table thead .sorting_asc_disabled { background: url('../img/sort_asc_disabled.png') no-repeat center right; }
+table.table thead .sorting_desc_disabled { background: url('../img/sort_desc_disabled.png') no-repeat center right; }
+
+/**
+** Table widths
+**/
+td div.control-group{
+  margin-bottom:0px;
+}
+
+
+.table-active{
+  width:10%;
+}
+
+/**
+** debug console 
+**/
+
+#debugconsole {
+  height:230px;
+  background-color: #f5f5f5;
+}
+#debugconsole h4{
+  padding-left:8px;
+  padding-top:5px;
+}
+#debugconsole pre{
+  height:190px;
+  margin:5px;
+  overflow: auto;
+  background-color: #fff;
+  font-family: monospace;
+}
+
+
+#debugconsole .alert{
+  padding:0;
+  margin:0;
+}
+
+#debugconsole .timestamp{
+  padding-right:10px;
+  color:#444;
+}
+
+
+/**
+* forms
+**/
+
+em.error{
+  color:red;
+}
+
+/* push in list item and pull out image if avatar display */
+.tweets li{
+  -ms-word-break: break-all;
+    word-break: break-all;
+  /* Non standard for webkit */
+    word-break: break-word;
+
+    -webkit-hyphens: auto;
+      -moz-hyphens: auto;
+        hyphens: auto;
+}
+.avatar{margin-left:53px;}
+.avatar img{float:left; margin-left:-53px;}
+.a-corn{
+  -webkit-border-radius: 5px;
+    -moz-border-radius:5px;
+      border-radius: 5px;
+}
+.a-rnd{}
+/* intents */
+.intent-meta {margin-top: 5px;}
+.intent-meta a{margin-right: 5px;}
+/* data attributes for inserting your icons */
+[data-icon]:before {
+  font-family: 'stt-intents';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  font-size:14px;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* icon only hide the text */
+.pi-visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}

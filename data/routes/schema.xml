@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<root><options><id>7</id><private><![CDATA[1]]></private><cache><![CDATA[id|slug|route|desc|page]]></cache></options><fields><route><![CDATA[textlong]]></route><slug><![CDATA[slug]]></slug><desc><![CDATA[textlong]]></desc><page><![CDATA[pages]]></page><id>int</id></fields></root>

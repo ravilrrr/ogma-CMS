@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<theme>
+		<name>Bootstrap</name>
+		<version>1.00</version>
+		<author>Twitter</author>
+		<website>getbootstrap.com</website>
+		<description>Default Bootstrap theme for OGMA CMS</description>
+	</theme>
+	<options>
+		<logo>text</logo>
+		<title>text</title>
+		<theme>text</theme>
+		<debug>yesno</debug>
+		<footer>text</footer>
+	</options>
+	<hooks>
+		<bootstrap-main-sidebar>Bootstrap Sidebar</bootstrap-main-sidebar>
+		<bootstrap-main-footer>Bootstrap Footer</bootstrap-main-footer>
+		<bootstrap-blog-before-post>Bootstrap Before Blog Post</bootstrap-blog-before-post>
+		<bootstrap-blog-comments>Bootstrap Blog Comments</bootstrap-blog-comments>
+		<bootstrap-blog-after-post>Bootstrap After Blog Post</bootstrap-blog-after-post>
+		<bootstrap-before-bosy-close>Bootstrap After Blog Post</bootstrap-before-bosy-close>
+	</hooks>
+</root>

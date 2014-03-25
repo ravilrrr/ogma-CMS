@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<root><pubdate><![CDATA[1384438260]]></pubdate><title><![CDATA[Welcome]]></title><slug><![CDATA[index]]></slug><metak><![CDATA[OGMS, xml , CMS]]></metak><metad><![CDATA[]]></metad><menu><![CDATA[Home]]></menu><menuOrder><![CDATA[1]]></menuOrder><menuStatus><![CDATA[Y]]></menuStatus><template><![CDATA[template.php]]></template><parent><![CDATA[]]></parent><content><![CDATA[[jumbotron fullwidth='true']        
+#[title]
+Congratulations, your new OGMA CMS site is now installed and ready for use.   
+[/jumbotron]
+]]></content><private><![CDATA[1]]></private><status><![CDATA[Published]]></status><author><![CDATA[Mike Swan]]></author><robots><![CDATA[index, follow]]></robots><id>1</id><route><![CDATA[]]></route><metat><![CDATA[]]></metat></root>

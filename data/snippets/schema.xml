@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<root><options><id>2</id><private><![CDATA[1]]></private><cache><![CDATA[id|slug|active|desc]]></cache></options><fields><slug><![CDATA[slug]]></slug><desc><![CDATA[textlong]]></desc><content><![CDATA[editor]]></content><active><![CDATA[yesno]]></active><id>int</id></fields></root>

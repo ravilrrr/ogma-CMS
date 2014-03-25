@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<root><options><id>1</id><private><![CDATA[1]]></private><cache><![CDATA[id|title|fileurl|tag|showorder|alt|caption|description]]></cache></options><fields><title><![CDATA[text]]></title><alt><![CDATA[text]]></alt><caption><![CDATA[textarea]]></caption><description><![CDATA[textarea]]></description><fileurl><![CDATA[image]]></fileurl><tag><![CDATA[text]]></tag><showorder><![CDATA[spinner]]></showorder><id>int</id></fields></root>
