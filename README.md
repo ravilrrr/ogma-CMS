@@ -3,6 +3,11 @@ OGMA-CMS
 
 OGMA CMS - XML Based Flat File CMS system
 
+
+NOTE: this is the initial Beta release.  
+Please log any issues in the tracker. 
+Gallery plugin is not complete !!
+
 ### Features 
 
 * Built with Bootstrap - Built using Bootstrap.  
