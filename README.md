@@ -23,10 +23,10 @@ Note: we do not currently support any other platforms, but may in the future.
 * Upload by ftp the contents of the zip to your server.
 * The following files/folders need to be writeable by you web server user (try CHMODing to 755) 
 
-/sitemap.xml
-/data
-/backups
-/addins/plugins
+/sitemap.xml  
+/data  
+/backups  
+/addins/plugins  
 
 
 ### Features 
