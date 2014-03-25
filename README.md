@@ -17,7 +17,7 @@ PHP 5.2.3 or higher
 
 Note: we do not currently support any other platforms, but may in the future.
 
-## Setup
+### Setup
 
 * Download the latest version of OGMA CMS and extract the contents of the Zip File.  
 * Upload by ftp the contents of the zip to your server.
