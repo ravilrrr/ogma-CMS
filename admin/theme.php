@@ -30,9 +30,9 @@ if ($action=="update"){
 	$ret= Theme::saveSettings();	
 	
 	if ($ret){
-		$alert = '<div class="alert alert-success"><a class="close">x</a><p>'.__("UPDATED",array(":record"=>$id,":type"=>"Theme Settings")).'</p></div>';
+		Core::addAlert( Form::showAlert('success',__("UPDATED",array(":record"=>$id,":type"=>"Theme Settings"))) ); 
 	} else {
-		$alert = '<div class="alert alert-error"><a class="close">x</a><p>'.__("UPDATEDFAIL",array(":record"=>$id,":type"=>"Theme Settings")).'</p></div>';
+		Core::addAlert( Form::showAlert('success',__("UPDATEDFAIL",array(":record"=>$id,":type"=>"Theme Settings"))) ); 
 	}
 	$action='edit';
 	$_GET['action'] = "edit";
@@ -43,11 +43,9 @@ if ($action=="update"){
 ?>
 <div class="col-md-12">
 	<?php 
-	  if ($alert!=''){
-	    echo $alert;
-	  }
-	  ?>
-	  <legend>Edit Theme Settings</legend>
+  		Core::getAlerts();
+	?>
+	<legend>Edit Theme Settings</legend>
 
 	<?php 
 	if ($action=='edit'){
