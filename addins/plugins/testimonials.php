@@ -57,7 +57,8 @@ class Testimonials{
         $id = Core::getID();                    // get page ID
 
         $table = new Query('testimonials');
-
+        $table->getCache();
+        
         extract(Query::getSortOptions());
 
         if ($action=="deleterecord" ){
