@@ -21,7 +21,7 @@ class Iconpicker
 				$this->value .= '<div class="form-group">';
 				$this->value .= '<label class="col-sm-2" for="'.$name.'">'.$label.'</label>';
 				$this->value .= '	<div class="col-sm-6">';
-				$this->value .= '	<input type="text" id="'.$name.'" name="'.$name.'" placeholder="'.$label.'" '.$tags.' class="form-control icon-picker '.$class.'" value="'.$value.'">';
+				$this->value .= '	<input type="text" id="'.$name.'" name="'.$name.'" placeholder="'.$label.'" class="form-control icon-picker '.$class.'" value="'.$value.'">';
 				if ($help!='') $this->value .= '<p class="help-block">'.$help.'</p>';
 				$this->value .= '	</div>';
 				$this->value .= '</div>';				
@@ -33,7 +33,7 @@ class Iconpicker
 				$this->value .= '<div class="form-group">';
 				$this->value .= '<label class="col-sm-2" for="'.$name.'">'.$label.'</label>';
 				$this->value .= '	<div class="col-sm-6">';
-				$this->value .= '	<input type="text" id="'.$name.'" name="'.$name.'" placeholder="'.$label.'" '.$tags.' class="form-control icon-picker '.$class.'" value="'.$value.'">';
+				$this->value .= '	<input type="text" id="'.$name.'" name="'.$name.'" placeholder="'.$label.'" class="form-control icon-picker '.$class.'" value="'.$value.'">';
 				if ($help!='') $this->value .= '<p class="help-block">'.$help.'</p>';
 				$this->value .= '	</div>';
 				$this->value .= '</div>';				
