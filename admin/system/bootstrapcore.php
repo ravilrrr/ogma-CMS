@@ -365,10 +365,10 @@ Shortcodes::addShortcode('notification', 'Bootstrapcore::bootstrap_notice');
 Shortcodes::addShortcodeDesc('notification','Bootstrap Notification', '[notification type=""]content[/notification]');
 
 Shortcodes::addShortcode('carousel', 'Bootstrapcore::bootstrapCarousel');
-Shortcodes::addShortcodeDesc('carousel','Bootstrap Lead', '[carousel media="" titles="true" control="true"]content[/carousel]');
+Shortcodes::addShortcodeDesc('carousel','Bootstrap Carousel', '[carousel media="" titles="true" control="true" /]');
 
 Shortcodes::addShortcode('gallery', 'Bootstrapcore::bootstrapGallery');
-Shortcodes::addShortcodeDesc('gallery','Bootstrap Lead', '[gallery media="" captions="" num="3"]content[/gallery]');
+Shortcodes::addShortcodeDesc('gallery','Bootstrap Gallery', '[gallery media="" captions="" num="3" /]');
 
 // this is for future use but allows you to add buttons to the editor bar
 Ogmaeditor::addButton('lead','','fa:fa fa-fw fa-text-height','[lead]','[/lead]','');
