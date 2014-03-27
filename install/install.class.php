@@ -64,7 +64,7 @@ class Install {
       $installedLang = Lang::getInstalledLanguages();
 
      
-      echo '<select type="select" name="language" id="language" class="form-control ">';
+      echo '<select type="select" name="post-language" id="post-language" class="form-control ">';
         foreach ($installedLang as $language) {
           echo "<option value='$language' ";
           if (Lang::$langnames[$language]==$curLang) echo "selected "; 
@@ -123,7 +123,7 @@ class Install {
 
 		if(Utils::isRemoveable("../data/")) $this->success(__("DATAWRITABLE")); 
 			else $this->error(__("DATANOTWRITABLE")); 
-		$this->hiddenInput('post-language',$_POST['language']);
+		$this->hiddenInput('post-language',$_POST['post-language']);
 		if($this->Errors) {
 			$this->p(__("ERRORSFOUND"));
 			$this->btn(__("CHECKAGAIN"), 1, "glyphicon glyphicon-refresh icon-white"); 
