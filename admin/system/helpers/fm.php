@@ -40,7 +40,7 @@ class Fm {
 
     private function showFiles($folder){
         $records = new Query("media");
-        $mediaFiles = $records->get();
+        $mediaFiles = $records->getCache()->get();
         foreach($folder as $file){ 
 
             if (self::checkIfImage($file['name'])){
