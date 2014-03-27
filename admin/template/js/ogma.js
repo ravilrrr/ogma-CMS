@@ -183,7 +183,6 @@ jQuery(document).ready(function ()
 		pluginname = GetQueryStringParams('tbl');
 		id=$(this).data('id');
 		sortdir=$(this).data('sortdir');
-		//alert(sortdir);
 		if (typeof pluginname === "undefined"){
 			window.location = window.location.pathname+"?action=view&sort="+id+"&dir="+sortdir;
 		} else {
@@ -193,7 +192,6 @@ jQuery(document).ready(function ()
 	
 	// Show Delete Modal
 	$(".delButton").on('click', function(){
-		//alert("test");
 		slug=$(this).data('slug');
 		table=$(this).data('table');
 		href=$(this).data('href');
@@ -288,7 +286,6 @@ jQuery(document).ready(function ()
 	})
 	$("body").on('click','.menuedit', function(e){
 		cid = $(this).attr('id');
-		//alert(cid);
 		if ($(this).hasClass('closed') ) { 
 			if ($('.open').length==0){
 				$('.menuedit').removeClass('open').addClass('closed');
@@ -302,7 +299,6 @@ jQuery(document).ready(function ()
 				order = $('#itemdata-'+cid).attr('data-order');
 				parent = $('#itemdata-'+cid).attr('data-parent');
 
-				//$(".menuedit").removeClass('menuedit');
 				$('#menu-edit').hide();
 				$('#menuurl').val(url);
 				$('#menutext').val(name);
@@ -391,7 +387,7 @@ jQuery(document).ready(function ()
 		    html += '</span>';
 		    html += '</span>';
 		    html += '<div id="control-c'+id+'"></div></li>';
-		   //alert(html);
+
 			if ($(".dd-list").length){
 			   	$(".dd-list").last().append(html);
 			} else {
@@ -416,7 +412,6 @@ jQuery(document).ready(function ()
         if (window.JSON) {
             $('#nestable-output').val(window.JSON.stringify(list.nestable('serializeXml')));//, null, 2));
 			order = list.nestable('serializeXml');
-			//alert(order);
         } else {
             output.val('JSON browser support required for this function.');
         }

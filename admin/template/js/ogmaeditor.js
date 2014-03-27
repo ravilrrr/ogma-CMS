@@ -110,7 +110,6 @@ $('#addshortcodebtn').on("click", function(){
     replaceText = $('#shortcodeTxt').val();
     editor=$('#shortcode_area').val();
     var extracted = $('#'+editor).extractSelectedText();
-    alert(replaceText.replace('content',extracted));
     $('#'+editor).replaceSelectedText(replaceText.replace('content',extracted));
     $('#shortcodeModal').modal('hide');
 })  
@@ -121,7 +120,6 @@ $('#showfullscreen').on('click',function(){
     $('#editorarea').data('area', editarea);
     $('#fullscreenedit').show();
     $('.showshortcodes').on("click", function(){
-        //alert(fullscreen);
         if (fullscreen){
             $('#shortcode_area').val('editorarea');     
         } else {
