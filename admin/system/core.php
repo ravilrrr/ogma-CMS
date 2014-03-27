@@ -80,7 +80,9 @@ class Core {
 			$lang=$_GET['setlang'];
 			if (in_array($lang, Lang::getInstalledLanguages())){
 				Core::$site['language'] = $lang;
-				Lang::loadLanguage(Core::$settings['rootpath'].'/addins/languages/'.$lang.'.lang.php');
+				if (User::isLoggedIn()){
+					Session::set('lang',$lang);
+				}
 				$ret=self::saveSettings();
 			}
 		}
@@ -88,6 +90,7 @@ class Core {
         if (User::getLanguage()==''){
         	$lang = Core::$site['language'];
         }  else {
+
         	$lang = User::getLanguage();
         }
  		Lang::loadLanguage(Core::$settings['rootpath'].'/addins/languages/'.$lang.'.lang.php');
