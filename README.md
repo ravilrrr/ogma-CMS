@@ -10,7 +10,7 @@ Gallery plugin is not complete !!
 
 ## Language files
 
-if you wish to translate the language files, please for from the Language repository
+if you wish to translate the language files, please fork from the Language repository
 
 https://github.com/n00dles/OGMA-CMS-languages
 
