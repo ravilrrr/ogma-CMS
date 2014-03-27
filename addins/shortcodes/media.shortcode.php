@@ -6,7 +6,7 @@ function showMedia($atts) {
 	    "class" 	=> ''
 	), $atts));
 	$allmedia = new Query('media');
-
+	$allmedia->getCache();
 	if ($id != ""){
 		$media = $allmedia->getRecord($id);	
 	}
