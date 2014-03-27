@@ -4,6 +4,7 @@ error_reporting(E_ALL);
 define('DS', DIRECTORY_SEPARATOR);
 define('IN_OGMA', true);
 // Load Core file
+require_once( '..' . DS . 'config.php');
 require_once(  'system' . DS . 'core.php');
 $core = new Core();
 
@@ -32,10 +33,11 @@ if (User::isLoggedIn()==true){
 	    		$value = isset($_REQUEST['value']) ? $_REQUEST['value'] : '';
 	    		
 	    		$tbl = new Query($table);
+	    		//$tbl->getCache();
 	    		$record = $tbl->getFullRecord($id);
 	    		$record[$field] = $value;
 
-	    		$ret = $table->saveRecord($record,$id);
+	    		$ret = $tbl->saveRecord($record,$id);
 	    		if ($ret) {
 	    			echo "1";
 	    		} else {
