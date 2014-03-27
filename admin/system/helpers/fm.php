@@ -99,11 +99,11 @@ class Fm {
         $path = self::getPath();
         $bcrumbs = explode(DIRECTORY_SEPARATOR , $path);
         $breadcrumbs = array_splice($bcrumbs,array_search('uploads', $bcrumbs)+1); 
-        echo '<ul class="breadcrumb" id="breadcrumb"><li><a href="files.php">uploads</a> </li>';
+        echo '<ul class="breadcrumb" id="breadcrumb"><li><a href="files.php">/ uploads</a></li>';
         $link='';
         foreach ($breadcrumbs as $crumb){
-            $link .= DIRECTORY_SEPARATOR.$crumb;
-            echo '<li><a href="files.php?path='.$link.'">'.$crumb.'</a> <span class="divider">/</span></li>';
+            $link .= '/'.$crumb;
+            echo '<li><a href="files.php?path='.$link.'">'.$crumb.'</a></li>';
         }
         echo '</ul>';
 
@@ -148,7 +148,7 @@ class Fm {
         $this->checkPath($_GET['path']);
         // concat
         //$path = $this->base_path.$_GET['path'];
-        $path = self::getPath(true);    
+        $path = self::getPath();    
         $files = array();
         $folders = array();
 
@@ -197,7 +197,7 @@ class Fm {
        
         if (!is_dir($target)) {
            if (mkdir($target))
-               $this->success('directory '.$target.' created');
+               $this->success('directory '.pathinfo($target, PATHINFO_FILENAME).' created');
            else
                $this->error('mkdir failed');
         } else {

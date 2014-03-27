@@ -158,28 +158,6 @@ error_reporting(E_ALL);
    
         $timestamp = date('U');
         ?>
-        <script type="text/javascript" src="../3rdparty/uploadify/jquery.uploadify.min.js"></script>
-		<script type="text/javascript">
-            
-
-            $(function() {
-                $('#file_upload3').uploadify({
-                    'swf'      : '../3rdparty/uploadify/uploadify.swf',
-                    'uploader' : '../3rdparty/uploadify/uploadify.php',
-                    // Put your options here
-                    onUploadComplete: function() {
-                        //$('#loader').fadeOut(500);
-                        $('#filemanager').load(location.href+' #filemanager > *');
-                    },
-                    'formData' : {
-                        'realpath' : '<?php echo $fm->getRelPath(); ?>',
-                        'timestamp' : '<?php echo $timestamp; ?>', 
-                        'token' : '<?php echo md5("unique_salt".$timestamp); ?>'
-                    }
-                });
-            });
-
-        </script>
 
         </div>
          <div id="newfolder" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="newfolder" aria-hidden="true">
@@ -188,7 +166,8 @@ error_reporting(E_ALL);
                 <div class="modal-header">
                     <h3>Create New Folder</h3>
                 </div>
-                <form id="createnewfolder" action="files.php" method="post" >
+                <?php $path =  isset($_GET['path']) ? "?path=".$_GET['path'] : null; ?>
+                <form id="createnewfolder" action="files.php<?php echo $path ?>" method="post" >
                     <div class="modal-body">
                         <input type="hidden" id="new-folder" name="new-folder" value="<?php echo Security::getNonce('addfolder','files.php'); ?>" />
                         <input type="text" class="input-xlarge" id="target" name="target" />
