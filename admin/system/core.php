@@ -73,6 +73,18 @@ class Core {
 		Core::$pages = new Query("pages");
 		Core::$routes = new Query("routes");
 
+
+		// check for setlang 
+		// 
+		if (isset($_GET['setlang'])){
+			$lang=$_GET['setlang'];
+			if (in_array($lang, Lang::getInstalledLanguages())){
+				Core::$site['language'] = $lang;
+				Lang::loadLanguage(Core::$settings['rootpath'].'/addins/languages/'.$lang.'.lang.php');
+				$ret=self::saveSettings();
+			}
+		}
+
         if (User::getLanguage()==''){
         	$lang = Core::$site['language'];
         }  else {
@@ -116,16 +128,6 @@ class Core {
        
 
 
-		// check for setlang 
-		// 
-		if (isset($_GET['setlang'])){
-			$lang=$_GET['setlang'];
-			if (in_array($lang, Lang::getInstalledLanguages())){
-				Core::$site['language'] = $lang;
-				Lang::loadLanguage(Core::$settings['rootpath'].'/addins/languages/'.$lang.'.lang.php');
-				$ret=self::saveSettings();
-			}
-		}
         // Load Language File
        
 		Theme::loadOptions();
