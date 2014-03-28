@@ -41,7 +41,9 @@ class Core {
 
 	public function __construct() {
 	
-		require_once('helpers/errors.php');
+		if(version_compare(PHP_VERSION, '5.3.0') >= 0) {
+			require_once('helpers/errors.php');
+		}
 		Core::init();
         Core::$site = Xml::xml2array(ROOT . '/data/website.xml');       
         if (Core::$site['debug']==true){
@@ -50,7 +52,9 @@ class Core {
 			ini_set('display_startup_errors',1);
 			error_reporting(-1);
 			if (DEVMODE){
-			 	\php_error\reportErrors();
+			 	if(version_compare(PHP_VERSION, '5.3.0') >= 0) {
+			 		\php_error\reportErrors();
+			 	}
 				Core::$devMode = true;
 			}
         } else {        	
@@ -82,6 +86,13 @@ class Core {
 				Core::$site['language'] = $lang;
 				if (User::isLoggedIn()){
 					Session::set('lang',$lang);
+					$username = Session::get('username');
+					$users = new Query('users');
+			        $users->getCache();
+			        $allUsers = $users->find('username = '.$username)->get();
+			        $user = $users->getFullRecord($allUsers[0]['id']);
+			        $user['language'] = $lang;
+			        Debug::pa($user);
 				}
 				$ret=self::saveSettings();
 			}
