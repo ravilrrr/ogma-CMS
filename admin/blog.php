@@ -160,7 +160,7 @@ $record = $table->getFullRecord($id);
 
 		$ogmaForm->displayField('post-id','ID', 'hidden', '',$record['id']);
 		$ogmaForm->displayField('post-pubdate',__('PUBLISHEDDATE'),  'datetimepicker', '',$record['pubdate']);
-		$ogmaForm->displayField('post-status',__('PUBLISHED'), 'dropdown', array(__("PUBLISHED"),__("DRAFT")),$record['status']);
+		$ogmaForm->displayField('post-status',__('PUBLISHED'), 'dropdown', array('Published'=>__("PUBLISHED"),'Draft'=>__("DRAFT")),$record['status']);
 		$ogmaForm->displayField('post-author',__('AUTHOR'), 'text', '',$record['author']);
 		$ogmaForm->displayField('post-comments',__('COMMENTS'), 'yesno' , '',$record['comments']);
     $ogmaForm->displayField('post-category',__('BLOG_CATEGORIES'), 'text' , '',$record['category']);

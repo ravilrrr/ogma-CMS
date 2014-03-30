@@ -190,7 +190,7 @@ $record = $table->getFullRecord($id);
     $ogmaForm->displayField('post-template',__("TEMPLATE"),  'templates', '',$record['template']);
     $ogmaForm->displayField('post-private',__("PRIVATE"),  'yesno', 'no',$record['private']);
     $ogmaForm->displayField('post-pubdate',__("PUBLISHEDDATE"),  'datetimepicker', '',$record['pubdate']);
-    $ogmaForm->displayField('post-status',__("PUBLISHED"), 'dropdown', array(__("PUBLISHED"),__("DRAFT")),$record['status']);
+    $ogmaForm->displayField('post-status',__("PUBLISHED"), 'dropdown', array('Published'=>__("PUBLISHED"),'Draft'=>__("DRAFT")),$record['status']);
     $ogmaForm->displayField('post-author',__("AUTHOR"),  'textlong', '',$record['author']);
 
 
