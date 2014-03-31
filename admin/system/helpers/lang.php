@@ -404,7 +404,6 @@ class Lang{
 		$languages = Lang::getInstalledLanguages();
 		foreach ($languages as $lang){
 			$uri = Core::curPageURL(); 
-			echo $uri;
 			if (strstr($uri, '?')){
 				$setlang = '&setlang=';
 			} else {
