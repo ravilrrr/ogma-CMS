@@ -65,7 +65,7 @@ class Bootstrap extends Theme{
 	    echo '        <span class="icon-bar"></span>';
 	    echo '        <span class="icon-bar"></span>';
 	    echo '      </button>';
-	    echo '      <a class="navbar-brand" href="/">'.Core::$site['sitename'].'</a>';
+	    echo '      <a class="navbar-brand" href="'.Template::getSiteUrl(false).'">'.Core::$site['sitename'].'</a>';
 	    echo '    </div>';
 	    echo '    <div class="navbar-collapse collapse">';
 	    echo '      <ul class="nav navbar-nav">';
