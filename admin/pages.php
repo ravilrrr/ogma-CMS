@@ -103,7 +103,7 @@ if ($action=='view'){
           // array of options, in this case entries for dropdown
           array(
             'widths'=>'50|20|20',
-            "status"=>array(__("PUBLISHED"),__("DRAFT"))
+            "status"=>array('Published'=>__("PUBLISHED"),'Draft'=>__("DRAFT"))
             ), true
         );
 
@@ -111,7 +111,7 @@ if ($action=='view'){
       foreach ($records  as $record) {
        $table->htmlTableRow($record,array(
             'widths'=>'5|50|20|15',
-            "status"=>array(__("PUBLISHED"),__("DRAFT"))
+            "status"=>array('Published'=>__("PUBLISHED"),'Draft'=>__("DRAFT"))
             ), true); 
 
        //see if there are any child pages
@@ -124,7 +124,7 @@ if ($action=='view'){
         foreach ($childrecords  as $childrecord) {
          $table->htmlTableRow($childrecord,array(
               'widths'=>'6|50|20|15',
-              "status"=>array(__("PUBLISHED"),__("DRAFT")),
+              "status"=>array('Published'=>__("PUBLISHED"),'Draft'=>__("DRAFT")),
               "indent"=>'title'
               ), true); 
          }
