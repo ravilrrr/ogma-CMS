@@ -16,7 +16,9 @@ class Query {
 		
     public $query = "";
 
-    public $table = ""; 
+    public $table = "";
+    
+    public $tableOutput = "";
     
     public $tableCache = array() ;
 
