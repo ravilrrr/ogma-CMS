@@ -312,8 +312,13 @@ $lang = array
     "LOG_STARTDEBUG" =>     "Debug Started",
     "LOG_FIREACTION" =>     "Fire Action: ",
     "LOG_LOADCACHE" =>      "Load Cache File: ",
-    "LOG_WRITECACHE" =>      "Writing Cache File: "
+    "LOG_WRITECACHE" =>     "Writing Cache File: ",
 
+// added from 0.1b
 
+    "ENABLE" =>             "Enable",
+    "DISABLE" =>            "Disable",
+    "ENABLED" =>            "Enabled",
+    "DISABLED" =>           "Disabled"
 )
 ?>
