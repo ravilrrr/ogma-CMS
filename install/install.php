@@ -26,11 +26,11 @@ $alert = '';
     <meta charset="utf-8">
     <title><?php echo htmlentities(__("OGMAINSTALLER"), ENT_QUOTES, "UTF-8"); ?></title>
 
-    <link href="/3rdparty/bootstrap3/css/bootstrap.css" rel="stylesheet">
-    <link href="/admin/template/css/ogmalogin.css" rel="stylesheet">
-    <script type="text/javascript" src="/3rdparty/jquery/jquery.min.js" ></script>
-    <script type="text/javascript" src="/3rdparty/bootstrap3/js/bootstrap.js" ></script>
-    <script type="text/javascript" src="/admin/template/js/jquery.validation.js" ></script>
+    <link href="../3rdparty/bootstrap3/css/bootstrap.css" rel="stylesheet">
+    <link href="../admin/template/css/ogmalogin.css" rel="stylesheet">
+    <script type="text/javascript" src="../3rdparty/jquery/jquery.min.js" ></script>
+    <script type="text/javascript" src="../3rdparty/bootstrap3/js/bootstrap.js" ></script>
+    <script type="text/javascript" src="../admin/template/js/jquery.validation.js" ></script>
 
     <script type="text/javascript">
     $(document).ready(function() {
