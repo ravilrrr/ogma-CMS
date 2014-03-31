@@ -404,12 +404,13 @@ class Lang{
 		$languages = Lang::getInstalledLanguages();
 		foreach ($languages as $lang){
 			$uri = Core::curPageURL(); 
+			echo $uri;
 			if (strstr($uri, '?')){
 				$setlang = '&setlang=';
 			} else {
 				$setlang = '?setlang=';
 			}
-			 echo '<li value="'.$lang.'" ><a href="'.Core::curPageURL().$setlang.$lang.'">'.Lang::$langnames[$lang].'</a></li>';
+			echo '<li value="'.$lang.'" ><a href="'.Core::curPageURL().$setlang.$lang.'">'.Lang::$langnames[$lang].'</a></li>';
 		}
 	}
 
@@ -426,7 +427,7 @@ class Lang{
 	 * @return string Translated String or '** $name **'' if it does not exist 
 	 */
 	public static function langDisplay($name){
-		if (array_key_exists($name, Lang::$language[Core::$site['language']])){
+		if (array_key_exists(Core::$site['language'],Lang::$language ) && array_key_exists($name, Lang::$language[Core::$site['language']])){
 			return Lang::$language[Core::$site['language']][$name] ;
 			//return "&&&";
 		} else {
