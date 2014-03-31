@@ -49,9 +49,9 @@ include "template/navbar.inc.php";
         <td>
             <?php 
             if (array_key_exists($plugin['name'], (Plugins::$installedPlugins) ) && Plugins::$installedPlugins[$plugin['name']]['status']==1) {
-                echo "activated";
+                echo __("ENABLED");
             } else {
-                echo "deactivated";
+                echo __("DISABLED");
             }
             ?>
 
@@ -61,9 +61,9 @@ include "template/navbar.inc.php";
             <?php 
                 
             if (array_key_exists($plugin['name'], (Plugins::$installedPlugins) ) && Plugins::$installedPlugins[$plugin['name']]['status']==1) {
-                echo '<a href="plugins.php?status=deactivate&plugin='.$plugin['name'].'"><col-md- class="label label-success">De-Activate</col-md-></a>';
+                echo '<a href="plugins.php?status=deactivate&plugin='.$plugin['name'].'"><col-md- class="label label-warning">'.__("DISABLE").'</col-md-></a>';
             } else {
-                echo '<a href="plugins.php?status=activate&plugin='.$plugin['name'].'"><col-md- class="label label-info">Activate</col-md-></a>';
+                echo '<a href="plugins.php?status=activate&plugin='.$plugin['name'].'"><col-md- class="label label-success">'.__("ENABLE").'</col-md-></a>';
             }
             ?>
 
