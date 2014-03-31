@@ -96,14 +96,14 @@ if ($action=='view'){
           // array of options, in this case entries for dropdown
           array(
             'widths'=>'50|20|20',
-            "status"=>array(__("PUBLISHED"),__("DRAFT"))
+            "status"=> array('Published'=>__("PUBLISHED"),'Draft'=>__("DRAFT"))
             ), true
         );
       if (count($records)>0){
         foreach ($records  as $record) {
          $table->htmlTableRow($record,array(
               'widths'=>'5|50|20|15',
-              "status"=>array(__("PUBLISHED"),__("DRAFT"))
+              "status"=> array('Published'=>__("PUBLISHED"),'Draft'=>__("DRAFT"))
               ), true); 
 
         }
@@ -160,7 +160,7 @@ $record = $table->getFullRecord($id);
 
 		$ogmaForm->displayField('post-id','ID', 'hidden', '',$record['id']);
 		$ogmaForm->displayField('post-pubdate',__('PUBLISHEDDATE'),  'datetimepicker', '',$record['pubdate']);
-		$ogmaForm->displayField('post-status',__('PUBLISHED'), 'dropdown', array('Published'=>__("PUBLISHED"),'Draft'=>__("DRAFT")),$record['status']);
+		$ogmaForm->displayField('post-status',__('PUBLISHED'), 'dropdown', array('Published'=>__("PUBLISHED"),'Draft'=>__("DRAFT")) ,$record['status']);
 		$ogmaForm->displayField('post-author',__('AUTHOR'), 'text', '',$record['author']);
 		$ogmaForm->displayField('post-comments',__('COMMENTS'), 'yesno' , '',$record['comments']);
     $ogmaForm->displayField('post-category',__('BLOG_CATEGORIES'), 'text' , '',$record['category']);
