@@ -4,7 +4,7 @@ This plugin adds Disqus commenting system to blog items.
 
 ### Usage
 
-- go to the configuration page for the plgin and enter your Disqus Shortname
+- go to the configuration page for the plugin and enter your Disqus Shortname
 
 Thats it !!  
 
