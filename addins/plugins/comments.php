@@ -19,7 +19,6 @@ class Comments {
 
     public static function init(){
         Actions::addAction('admin-add-sidebar','Menu::addSidebarMenu',1,array("Comments",'','comments&action=edit','fa fa-fw fa-comment'));
-        Actions::addAction('bootstrap-blog-comments', 'Comments::showComments',1,array());
         $language = Core::$site['language'];
         Lang::mergeLanguage(Core::$settings['pluginpath'].'comments'.DS.'lang'.DS.$language.'.lang.php');
       
@@ -30,7 +29,7 @@ class Comments {
     }
 
     public static function initFrontend(){
-        // Frontend stuff
+        Actions::addAction('bootstrap-blog-comments', 'Comments::showComments',1,array());
     }
     
     public static function admin(){
