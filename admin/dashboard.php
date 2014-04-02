@@ -100,17 +100,17 @@
 	        	<div class="panel-body">
 	        		<p>
 	        			<?php if (User::hasPerms('pages')){ ?>
-	        			<a href="pages.php?action=create">Add New Page</a><br>
+	        			<a href="pages.php?action=create"><?php echo __("CREATEPAGE"); ?></a><br/>
 	                    <?php } ?>
 
 	                    <?php if (User::hasPerms('pages')){ ?>
-	                    <a href="blog.php?action=create">Add New Blog</a><br>
+	                    <a href="blog.php?action=create"><?php echo __("CREATEBLOG"); ?></a><br/>
 	                    <?php } ?>
 	                    <?php if (User::hasPerms('pages')){ ?>
-	                    <a href="snippets.php?action=create">Add New Snippet</a><br>
+	                    <a href="snippets.php?action=create"><?php echo __("CREATESNIPPET"); ?></a><br/>
 	                    <?php } ?>
 	                    <?php if (User::hasPerms('pages')){ ?>
-	                    <a href="components.php?action=create">Add New Component</a>
+	                    <a href="components.php?action=create"><?php echo __("CREATECOMPONENT"); ?></a><br/>
 	                    <?php } ?>
 	                  </p>
 	        	</div>
