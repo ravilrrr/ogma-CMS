@@ -103,7 +103,7 @@ jQuery(document).ready(function ()
 	})
 
 	$('.markdown-readme').on('click',function(){
-		$('#modal-readme-label').html($(this).data('readme'));
+		$('#modal-readme-label').html($(this).data('title'));
 		$.post(  
             "ajax.php",  
             {"q": 100, "plugin":$(this).data('readme') },  

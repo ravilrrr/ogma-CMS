@@ -40,7 +40,7 @@ include "template/navbar.inc.php";
         <?php 
         echo $plugin['desc'];  
         if (file_exists(Core::$settings['pluginpath'].DS.$plugin['name'].DS.'readme.md')){
-        echo '<button type="button" style="float:right;" data-readme="'.$plugin['name'].'" class="btn btn-success btn-xs markdown-readme"><span class="glyphicon glyphicon-info-sign"></span></button>';
+        echo '<button type="button" style="float:right;" data-readme="'.$plugin['name'].'" data-title="'.$plugin['desc'].'" class="btn btn-success btn-xs markdown-readme"><span class="glyphicon glyphicon-info-sign"></span></button>';
         }
         ?>
         </td> 
