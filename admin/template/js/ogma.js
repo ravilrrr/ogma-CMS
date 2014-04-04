@@ -19,7 +19,14 @@ jQuery(document).ready(function ()
 		$('#confirmRestore').modal('show');
 	})
 
-
+	$('#user-perms').multiselect({
+		maxHeight: 250,
+      	onChange: function(element, checked) {
+      		value  = $('#user-perms').val();
+			$('#post-perms').val(value);
+      	}
+    });
+	
 	$('#filter').on('change',function(){
 		
 		var url = document.URL

@@ -10,7 +10,7 @@
 $styles = array(
 	"bootstrap" => "../3rdparty/bootstrap3/css/bootstrap.min.css", 
 	"font-awesome" => "../3rdparty/font-awesome/css/font-awesome.min.css", 
-	"bootstrap-datepicker" => "../3rdparty/bootstrap-datepicker/css/bootstrap-datetimepicker.css", 
+	"bootstrap-datepicker" => "../3rdparty/bootstrap-datepicker/css/bootstrap-datetimepicker.css",
 	"bootstrap-toggle" => "../3rdparty/bootstrap-toggle/css/bootstrap-toggle.min.css",
 	"codemirror" => "../3rdparty/codemirror/lib/codemirror.css",
 	"codemirrortheme" => "../3rdparty/codemirror/theme/default.css"
@@ -45,6 +45,7 @@ Stylesheet::add("../3rdparty/bootstrap-icon-picker/css/icon-picker.css","backend
 Stylesheet::add($styles['codemirror'],"backend",7);
 Stylesheet::add($styles['codemirrortheme'],"backend",8);
 Stylesheet::add("../3rdparty/dropzone/css/dropzone.css","backend",9);
+Stylesheet::add("../3rdparty/bootstrap-multiselect/bootstrap-multiselect.css","backend",10);
 
 Actions::addAction('admin-header','Stylesheet::show',1,array('backend'));
 
@@ -66,12 +67,13 @@ Scripts::add("template/js/jquery.sortable.js","backend",13);
 
 Scripts::add($scripts['codemirror'],"backend",14);
 
-Scripts::add("template/js/rangy.inputs.js","backend",20);
+Scripts::add("template/js/rangy.inputs.js","backend",15);
 
-Scripts::add("template/js/jconfirm.jquery.js","backend",20);
+Scripts::add("template/js/jconfirm.jquery.js","backend",16);
+Scripts::add("../3rdparty/bootstrap-multiselect/bootstrap-multiselect.js","backend",17);
 
-Scripts::add("template/js/ogma.js","backend",20);
-Scripts::add("template/js/ogmaeditor.js","backend",21);
+Scripts::add("template/js/ogma.js","backend",18);
+Scripts::add("template/js/ogmaeditor.js","backend",19);
 
 Actions::addAction('admin-header','Scripts::show',1,array('backend'));
 

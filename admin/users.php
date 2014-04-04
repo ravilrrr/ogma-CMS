@@ -71,8 +71,7 @@ if ($action=="update"){
       Session::set('lang',$_POST['post-language']);
       Session::set('email',$_POST['post-email']);
   }
-  //Lang::loadLanguage(Core::$settings['rootpath'].'/addins/languages/'.$_POST['post-language'].'.lang.php');
-
+ 
 	$ret=$table->saveRecord($record,$id);
 	 if (isset($_POST['submitclose'])){ 
       $action='view';
@@ -185,7 +184,7 @@ if ($action=='edit' || $action=="create"){
 
     $ogmaForm->createTabHeader(array('main'=>__("MAIN")),true);
     if (User::isAdmin() && $record['role']=="author"){
-      $ogmaForm->createTabHeader(array('perms'=>__("PERMISSIONS")));
+      //$ogmaForm->createTabHeader(array('perms'=>__("PERMISSIONS")));
     }
     $ogmaForm->createExtrasTab('users', $table->tableFields);
 
@@ -215,20 +214,25 @@ if ($action=='edit' || $action=="create"){
     }
     $ogmaForm->displayField('post-language',__("LANGUAGE"), 'dropdown', Lang::getInstalledLanguages(),$record['language']);
 
+
     if (User::isAdmin() && $record['role']=="author"){
       $allowedPerms=$record['perms'];
-      $ogmaForm->createTabPane('perms',false);
-      $ogmaForm->displayField('post-perms',__("PERMISSIONS"), 'textlong', array('tags'=>true),$allowedPerms);
+      //$ogmaForm->createTabPane('perms',false);
+      //$ogmaForm->displayField('post-perms',__("PERMISSIONS"), 'textlong', '',$allowedPerms);
       $currentPerms = explode(',',$allowedPerms);
       $perms = Core::$permissions;
+      $ogmaForm->output('<div class="form-group"><label class="col-sm-2" for="user-perms">'.__("PERMISSIONS").'</label>');
+      $ogmaForm->output('<div class="col-sm-6"><select name="user-perms" id="user-perms" class="multiselect form-control" multiple="multiple">');
       foreach ($perms as $perm){
         if (in_array($perm, $currentPerms)){
-          $checked = " checked='checked'";
+          $checked = " selected ";
         } else {
           $checked = "";
         }
-        $ogmaForm->output('<div class="control-group"><label class="control-label" for="post-'.$perm.'">'.__(strtoupper($perm)).'</label><div class="controls"> <div id="normal-toggle-button"><input class="usertoggle" type="checkbox" value="'.$perm.'" name="userperms" '.$checked.'></div> </div></div>');
-      }
+        //$ogmaForm->output('<div class="control-group"><label class="control-label" for="post-'.$perm.'">'.__(strtoupper($perm)).'</label><div class="controls"> <div id="normal-toggle-button"><input class="usertoggle" type="checkbox" value="'.$perm.'" name="userperms" '.$checked.'></div> </div></div>');
+           $ogmaForm->output('<option value="'.$perm.'" '.$checked.'>'.$perm.'</option>');
+        }
+       $ogmaForm->output('</select></div></div>');
     }
 
     $ogmaForm->createExtrasPane($record);

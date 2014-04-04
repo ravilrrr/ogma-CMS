@@ -11,7 +11,6 @@
  */
 	include "template/head.inc.php";
 	include "template/navbar.inc.php";
-	include "template/menu.inc.php"; 
 
 ?>
 		<div class="col-md-12">
