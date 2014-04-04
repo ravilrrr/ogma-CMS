@@ -217,8 +217,6 @@ if ($action=='edit' || $action=="create"){
 
     if (User::isAdmin() && $record['role']=="author"){
       $allowedPerms=$record['perms'];
-      //$ogmaForm->createTabPane('perms',false);
-      //$ogmaForm->displayField('post-perms',__("PERMISSIONS"), 'textlong', '',$allowedPerms);
       $currentPerms = explode(',',$allowedPerms);
       $perms = Core::$permissions;
       $ogmaForm->output('<div class="form-group"><label class="col-sm-2" for="user-perms">'.__("PERMISSIONS").'</label>');
@@ -229,7 +227,6 @@ if ($action=='edit' || $action=="create"){
         } else {
           $checked = "";
         }
-        //$ogmaForm->output('<div class="control-group"><label class="control-label" for="post-'.$perm.'">'.__(strtoupper($perm)).'</label><div class="controls"> <div id="normal-toggle-button"><input class="usertoggle" type="checkbox" value="'.$perm.'" name="userperms" '.$checked.'></div> </div></div>');
            $ogmaForm->output('<option value="'.$perm.'" '.$checked.'>'.$perm.'</option>');
         }
        $ogmaForm->output('</select></div></div>');
