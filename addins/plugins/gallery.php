@@ -65,7 +65,7 @@ class Gallery{
 			$nonce = $_POST['security-nonce'];
 			$record = $_POST['security-record'];
 			$tableid = $_POST['security-table'];
-			if (Security::checkNonce($nonce,'deleterecord', 'testimonials')){
+			if (Security::checkNonce($nonce,'deleterecord', 'gallery')){
 				$ret=$table->deleteRecord($record);
 				$action='view';
 			} else {
@@ -100,51 +100,6 @@ class Gallery{
 				$_GET['action']='edit';
 			}
 		} 
-
-		if ($action=='opt'){
-			$record = $table->getFullRecord($id);	
-		?>
-		<div class="col-md-12">
-		<?php 
-			Core::getAlerts();
-		?>
-		<legend><?php echo __("EDIT").' : '.$record['name']; ?></legend>
-	 	<?php 
-
-	 	echo Gallery::showImagesAdmin($record['name'], $record['src']);
-
-
-	 	?>
-	 	</div>
-	 	<div id="galleryEditImageModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="galleryEditImageModal" aria-hidden="true">
-		  <div class="modal-dialog">
-		  <div class="modal-content">
-		  <div class="modal-header">
-		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-		    <h3 id="myModalLabel"><?php echo __("GALLERY_EDIT"); ?></h3>
-		  </div>
-		  <div class="modal-body">
-		  <div class="form-group">
-		    <label for="imageTitle"><?php echo __("GALLERY_IMAGE_TITLE"); ?></label>
-		    <input name="imageTitle" id="imageTitle" type="text" value="" placeholder="<?php echo __("GALLERY_IMAGE_TITLE"); ?>" class="form-control" ?>
-		  </div>
-		   <div class="form-group">
-		    <label for="imageAlt"><?php echo __("GALLERY_IMAGE_ALT"); ?></label>
-		    <input name="imageAlt" id="imageAlt" type="text" value=""  placeholder="<?php echo __("GALLERY_IMAGE_ALT"); ?>" class="form-control" ?>
-		  </div>
-		   	<input  name="imageID" id="imageID" type="hidden" value=""  class="form-control" ?>
-		  </div>
-		  <div class="modal-footer">
-		    <!--<form action="javascript:void();" method="post" > -->		   
-		    <button class="btn" data-dismiss="modal" aria-hidden="true"><?php echo __("CLOSE"); ?></button>
-		    <button class="btn btn-success" id="updateImageDetails" name="updateImageDetails" data-url="" ><?php echo __("SAVE"); ?></button>
-		  <!-- </form> -->
-		  </div>
-		  </div>
-		  </div>
-		</div>
-	 	<?php
-		}
 
 	 	if ($action=='view'){
 				//$blogentry = $tableRecords->query('select * from routes order by route ASC');
@@ -192,7 +147,7 @@ class Gallery{
 					  </button>
 					 <?php if (User::isAdmin()){ ?><ul class="dropdown-menu">
 					 
-			          <li><a href="#" data-nonce="<?php echo Security::getNonce('deleterecord','users.php'); ?>" data-slug="<?php echo $record['id']; ?>" data-href="delme.php" data-table="users" class="delButton" ><?php echo __("DELETE"); ?></a></li>
+			          <li><a href="#" data-nonce="<?php echo Security::getNonce('deleterecord','gallery'); ?>" data-slug="<?php echo $record['id']; ?>" data-href="delme.php" data-table="users" class="delButton" ><?php echo __("DELETE"); ?></a></li>
 			        
 			        </ul>
 			        <?php } ?>
@@ -248,6 +203,7 @@ class Gallery{
 				
 				if (Gallery::hasImages($record['name']) && $action=="edit"){
 					$ogmaForm->createTabPane('images',false);
+					$ogmaForm->addHeader(__("GALLERY_IMAGES"));
 					$ogmaForm->output(Gallery::showImagesAdmin($record['name'], $record['src']));
 				}
 
@@ -262,6 +218,32 @@ class Gallery{
 				
 				?>
 				</div>   
+				<div id="galleryEditImageModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="galleryEditImageModal" aria-hidden="true">
+				  <div class="modal-dialog">
+				  <div class="modal-content">
+				  <div class="modal-header">
+				    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+				    <h3 id="myModalLabel"><?php echo __("GALLERY_EDIT"); ?></h3>
+				  </div>
+				  <div class="modal-body">
+				  <div class="form-group">
+				    <label for="imageTitle"><?php echo __("GALLERY_IMAGE_TITLE"); ?></label>
+				    <input name="imageTitle" id="imageTitle" type="text" value="" placeholder="<?php echo __("GALLERY_IMAGE_TITLE"); ?>" class="form-control" ?>
+				  </div>
+				   <div class="form-group">
+				    <label for="imageAlt"><?php echo __("GALLERY_IMAGE_ALT"); ?></label>
+				    <input name="imageAlt" id="imageAlt" type="text" value=""  placeholder="<?php echo __("GALLERY_IMAGE_ALT"); ?>" class="form-control" ?>
+				  </div>
+				   	<input  name="imageID" id="imageID" type="hidden" value=""  class="form-control" ?>
+				  </div>
+				  <div class="modal-footer">
+				    <!--<form action="javascript:void();" method="post" > -->		   
+				    <button class="btn" data-dismiss="modal" aria-hidden="true"><?php echo __("CLOSE"); ?></button>
+				    <button class="btn btn-success" id="updateImageDetails" name="updateImageDetails" data-url="" ><?php echo __("SAVE"); ?></button>
+				  <!-- </form> -->
+				  </div>
+				  </div>
+				  </div>
 			<?php
 
 			} 
