@@ -47,7 +47,7 @@ class Core {
 		Core::init();
         Core::$site = Xml::xml2array(ROOT . '/data/website.xml');       
         if (Core::$site['debug']==true){
-        	Debug::addLog("Debug Stated");
+        	Debug::addLog("Debug Started");
         	ini_set('display_errors',1);
 			ini_set('display_startup_errors',1);
 			error_reporting(-1);
@@ -92,7 +92,6 @@ class Core {
 			        $allUsers = $users->find('username = '.$username)->get();
 			        $user = $users->getFullRecord($allUsers[0]['id']);
 			        $user['language'] = $lang;
-			        Debug::pa($user);
 				}
 				$ret=self::saveSettings();
 			}
