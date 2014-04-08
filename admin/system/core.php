@@ -41,9 +41,6 @@ class Core {
 
 	public function __construct() {
 	
-		if(version_compare(PHP_VERSION, '5.3.0') >= 0) {
-			require_once('helpers/errors.php');
-		}
 		Core::init();
         Core::$site = Xml::xml2array(ROOT . '/data/website.xml');       
         if (Core::$site['debug']==true){
@@ -51,12 +48,6 @@ class Core {
         	ini_set('display_errors',1);
 			ini_set('display_startup_errors',1);
 			error_reporting(-1);
-			if (DEVMODE){
-			 	if(version_compare(PHP_VERSION, '5.3.0') >= 0) {
-			 		\php_error\reportErrors();
-			 	}
-				Core::$devMode = true;
-			}
         } else {        	
         	ini_set('display_errors',0);
 			ini_set('display_startup_errors',0);
