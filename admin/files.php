@@ -164,13 +164,17 @@ error_reporting(E_ALL);
                 <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h3>Create New Folder</h3>
+                    <h3><?php echo __("CREATEFOLDER"); ?></h3>
                 </div>
                 <?php $path =  isset($_GET['path']) ? "?path=".$_GET['path'] : null; ?>
                 <form id="createnewfolder" action="files.php<?php echo $path ?>" method="post" >
                     <div class="modal-body">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1"><?php echo __("FOLDERNAME"); ?></label>
+   
                         <input type="hidden" id="new-folder" name="new-folder" value="<?php echo Security::getNonce('addfolder','files.php'); ?>" />
-                        <input type="text" class="input-xlarge" id="target" name="target" />
+                        <input type="text" class="form-control" id="target" name="target" />
+                    </div>
                     </div>
                     <div class="modal-footer">
                         <a class="submit btn btn-primary" id="createfolder" data-dismiss="modal"><?php echo __("CREATE"); ?></a>

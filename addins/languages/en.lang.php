@@ -319,6 +319,9 @@ $lang = array
     "ENABLE" =>             "Enable",
     "DISABLE" =>            "Disable",
     "ENABLED" =>            "Enabled",
-    "DISABLED" =>           "Disabled"
+    "DISABLED" =>           "Disabled",
+    "BACKUPFILENAME" =>     "Backup File Name",
+    "CREATEFOLDER" =>       "Create a new Folder",
+    "FOLDERNAME" =>         "Folder Name"
 )
 ?>
