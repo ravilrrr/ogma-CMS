@@ -55,15 +55,15 @@ class Core {
         }
 
 		Core::$settings['rootpath']      = self::getRootPath();
-		Core::$settings['themespath']    = 'theme/';
+		Core::$settings['themespath']    = 'theme'.DS;
 		Core::$settings['adminpath']     = self::getAdminPath();
-		Core::$settings['pluginpath']    = self::getRootPath().'addins/plugins/';
-		Core::$settings['shortcodepath'] = self::getRootPath().'addins/shortcodes/';
-		Core::$settings['fieldspath']    = self::getRootPath().'addins/fields/';
-		Core::$settings['backuppath']    = self::getRootPath().'backups/';
-		Core::$settings['datapath']      = 'data/';
-		Core::$settings['uploadpath']    = 'uploads/';
-		Core::$settings['temppath']   	 = self::getRootPath().'temp/';
+		Core::$settings['pluginpath']    = self::getRootPath().'addins'.DS.'plugins'.DS;
+		Core::$settings['shortcodepath'] = self::getRootPath().'addins'.DS.'shortcodes'.DS;
+		Core::$settings['fieldspath']    = self::getRootPath().'addins'.DS.'fields'.DS;
+		Core::$settings['backuppath']    = self::getRootPath().'backups'.DS;
+		Core::$settings['datapath']      = 'data'.DS;
+		Core::$settings['uploadpath']    = 'uploads'.DS;
+		Core::$settings['temppath']   	 = self::getRootPath().'temp'.DS;
 
 		Core::$pages = new Query("pages");
 		Core::$routes = new Query("routes");
@@ -313,7 +313,7 @@ class Core {
 	
 	public static function tsl($path) {
 		if( substr($path, strlen($path) - 1) != '/' ) {
-			$path .= '/';
+			$path .= DS;
 		}
 		return $path;
 	}
@@ -324,6 +324,13 @@ class Core {
 		return $file;	
 	}
 	
+	public static function verifyPath($path, $realpath){
+		if (substr(realpath($path),0,strlen( $realpath))=== $realpath) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 	public static function myself($echo=true) {
 		if ($echo) {

@@ -23,7 +23,14 @@
 		$archive->getFiles('addins');
 		$archive->getFiles('theme');
 		$archive->getFiles('uploads');
-		$name = (isset($_POST['backupname']) && $_POST['backupname']!='') ? "backups/".$_POST['backupname'].".zip" : "backups/".date('U')."_archive.zip" ;
+		if ($_POST['backupname']!='' ){
+			$backupname = $_POST['backupname'];
+			if (substr($backupname, -4)!=".zip") $backupname .= ".zip";
+		} else {
+			$backupname = date('U')."_archive.zip" ;	
+		}
+		$name = "backups".DS.$backupname;
+		
 		$archive->doBackup(Core::$settings['rootpath'].$name);
 	}
 
@@ -32,13 +39,15 @@
 	$id = Core::getID();                    // get page ID
 
 	if ($action=="delete" && Security::checkNonce($_POST['backup-nonce'],'delete-backup','backups.php')){
-		$file = Core::getRootPath().'backups/'.$_POST['backup-name'];
-		if (file_exists($file)) {
-			$ret = unlink($file);
-			if ($ret){
-				Core::addAlert( Form::showAlert('success', __("BACKUPDELETED") ) );
-			} else {
-				Core::addAlert( Form::showAlert('warning', __("BACKUPDELETEFAILED") ) );
+		$file = Core::getRootPath().'backups'.DS.$_POST['backup-name'];
+		if (Core::verifyPath($file, Core::$settings['backuppath'])) {
+			if (file_exists($file)) {
+				$ret = unlink($file);
+				if ($ret){
+					Core::addAlert( Form::showAlert('success', __("BACKUPDELETED") ) );
+				} else {
+					Core::addAlert( Form::showAlert('warning', __("BACKUPDELETEFAILED") ) );
+				}
 			}
 		}
 	}
@@ -53,18 +62,20 @@
 		  Core::getAlerts();
 		?>
 		<legend><?php echo __("VIEWBACKUPS"); ?></legend>
-		 <div class="btn-group" style="padding-bottom:15px;">
-		 	<form class="form-inline" action="backups.php?s=backup" method="post" >
-		 	<div class="form-group">
-		 	<input type="text" class="form-control" id="backupname" name="backupname" placeholder="Backup File Name">
-		 	<input type="hidden" id="backup-nonce" name="dobackup-nonce" value="<?php echo Security::getNonce('delete-backup','backups.php'); ?>" />
-		        
-		 	</div>
-		 	<div class="form-group">
-		 	<button class="btn btn-primary" type="submit" onclick="$(this).button('loading');" data-loading-text="<?php echo __('CREATEBACKUP'); ?>" ><span class="glyphicon glyphicon-plus"></span> <?php echo __("CREATENEW",array(":type"=>"Backup")); ?></button>
-		 	</div>
+	 	<div class="row">
+		 	<form  class="form-inline" role="form" action="backups.php?s=backup" method="post" >
+			 	<div class="input-group col-md-6">
+	  		 		<input type="text" class="form-control" id="backupname" name="backupname" placeholder="<?php echo __("BACKUPFILENAME"); ?>" >
+			 	  	<span class="input-group-addon">.zip</span>
+				</div>
+				<button class="btn btn-primary" type="submit" onclick="$(this).button('loading');" data-loading-text="<?php echo __('CREATEBACKUP'); ?>" >
+			 		<span class="glyphicon glyphicon-plus"></span> <?php echo __("CREATENEW",array(":type"=>"Backup")); ?>
+			 	</button>
+				<input type="hidden" id="backup-nonce" name="dobackup-nonce" value="<?php echo Security::getNonce('delete-backup','backups.php'); ?>" />     
+		 		
 		 	</form>
-		 </div>
+	 	</div>
+
 	  <table class="table table-bordered table-striped table-hover">
 	    <thead>
 	   
