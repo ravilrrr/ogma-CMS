@@ -61,7 +61,7 @@ class Form{
 	public function loadCustomFields(){
 		$language = Core::$site['language'];
 		$cFields = new Query('customfields');
-		$this->customFields = $cFields->get();
+		$this->customFields = $cFields->getCache()->get();
 		foreach($this->customFields as $item){
 			// load the customfield headers in the current language. 
 			Lang::$language[$language]["CF_".strtoupper($item['name'])] = $item['desc'];
@@ -190,7 +190,7 @@ class Form{
     * @param string $name Name of Pane
     * @param boolean $active Set true for active Tab
     */
-	public  function ENDTabHeaders(){
+	public  function endTabHeaders(){
 		$this->formOutput .=  '</ul>';
 	} 
 
