@@ -15,7 +15,7 @@ class Url{
 	public static $route_match = '';
 
 	public function __construct() {
-    		
+    	// nothing
     }
 
     /**
@@ -38,6 +38,8 @@ class Url{
 	/**
 	 * Returns a Page ID 
 	 * Routing tables are checked first the page slugs
+	 * 
+	 * Credit to Toro.php for inspiration and the regexs. 
 	 */
 	public static function getPageID(){
 		$uri = trim(str_replace('index.php', '', $_SERVER['REQUEST_URI']), '/#');
