@@ -322,6 +322,7 @@ $lang = array
     "DISABLED" =>           "Disabled",
     "BACKUPFILENAME" =>     "Backup File Name",
     "CREATEFOLDER" =>       "Create a new Folder",
-    "FOLDERNAME" =>         "Folder Name"
+    "FOLDERNAME" =>         "Folder Name",
+    "ADDTOCACHE" =>         "Add field to Cache"
 )
 ?>

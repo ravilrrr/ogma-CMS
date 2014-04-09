@@ -1,2 +1,2 @@
 <?xml version="1.0"?>
-<root><options><id><![CDATA[1]]></id><private><![CDATA[1]]></private><cache><![CDATA[id|name|type|table|desc|options]]></cache></options><fields><name><![CDATA[textlong]]></name><type><![CDATA[dropdown]]></type><table><![CDATA[dropdown]]></table><desc><![CDATA[textlong]]></desc><options><![CDATA[textarea]]></options><id><![CDATA[int]]></id></fields></root>
+<root><options><id>3</id><private><![CDATA[1]]></private><cache><![CDATA[id|name|type|table|desc|options]]></cache></options><fields><name><![CDATA[textlong]]></name><type><![CDATA[dropdown]]></type><table><![CDATA[dropdown]]></table><desc><![CDATA[textlong]]></desc><options><![CDATA[textarea]]></options><cacheit><![CDATA[textarea]]></cacheit><id>int</id></fields></root>

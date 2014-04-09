@@ -57,6 +57,22 @@ class Query {
 		return $this;
 	}
 
+	public function addToCache($field){
+		$current_cache = $this->tableOptions['cache'];
+		$fields = explode("|", $this->tableOptions['cache']);
+		$fields[] = $field;
+		$this->tableOptions['cache'] = implode("|", $fields);
+		debug::pa($this->tableOptions['cache']);
+	}
+
+	public function removeFromCache($field){
+		$current_cache = $this->tableOptions['cache'];
+		$fields = explode("|", $this->tableOptions['cache']);
+		$fields = Arr::arrayDelete($fields, $field);
+		$this->tableOptions['cache'] = implode("|", $fields);
+		debug::pa($this->tableOptions['cache']);
+	}
+
 	public function addField($name, $type, $update = false){
 		$this->tableFields[$name] = $type;
 		if ($update){
@@ -249,7 +265,7 @@ class Query {
 					//$tables[$count]['maxrecords'] = $tableinfo['options']['maxrecords'];
 					
 				} else {
-					$tables[] = $folder;	
+					$tables[$folder] = $folder;	
 				}
 
 

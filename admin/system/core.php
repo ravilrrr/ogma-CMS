@@ -21,16 +21,17 @@ class Core {
 	public static $site = array();
 	public static $settings = array(); 
 	public static $schema = array(
-			"blog"       => array('slug','title','pubdate','author','tags','status','comments','metat','metad','metak','content','category','id'),
-			"components" => array('slug','content','active','desc','id'),
-			"galleries"  => array('galleryname','id'),
-			"menus"      => array('menuname','id'),
-			"pages"      => array('slug','parent','title','pubdate','route','template','metat','metak','metad','robots','status','private','content','author','id'),
-			"routes"     => array('route','slug','desc','page','id'),
-			"snippets"   => array('slug','content','active','desc','id'),
-			"users"      => array('username','password','email','role','firstname','lastname','id','language','perms','reset','salt'),
-			"media"      => array('id','title','alt','caption','description','fileurl','tag','showorder'),
-			"themehooks" => array('id','hook','type','action')
+			"blog"       	=> array('slug','title','pubdate','author','tags','status','comments','metat','metad','metak','content','category','id'),
+			"components" 	=> array('slug','content','active','desc','id'),
+			"galleries"  	=> array('galleryname','id'),
+			"menus"      	=> array('menuname','id'),
+			"pages"      	=> array('slug','parent','title','pubdate','route','template','metat','metak','metad','robots','status','private','content','author','id'),
+			"routes"     	=> array('route','slug','desc','page','id'),
+			"snippets"   	=> array('slug','content','active','desc','id'),
+			"users"      	=> array('username','password','email','role','firstname','lastname','id','language','perms','reset','salt'),
+			"media"      	=> array('id','title','alt','caption','description','fileurl','tag','showorder'),
+			"themehooks" 	=> array('id','hook','type','action'),
+			"customfields" 	=> array('id','name','table','type','cache','desc','options')
 		);
 
 	public static $pages = array();
@@ -67,7 +68,6 @@ class Core {
 
 		Core::$pages = new Query("pages");
 		Core::$routes = new Query("routes");
-
 
 		// check for setlang 
 		// 

@@ -93,4 +93,8 @@ class Arr{
 	        } 
 	  	}
 	}
+
+	public static function arrayDelete($array, $element) {
+	    return array_diff($array, [$element]);
+	}
 }

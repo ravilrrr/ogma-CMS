@@ -41,6 +41,7 @@ if ($action=="deleterecord"){
     $name = $records['name']; 
     $type = $records['type']; 
     $updateTable = New Query($tablename);
+    $updateTable->removeFromCache($name);
     $updateTable->deleteField($name);
     $updateTable->deleteFieldFromRecords($tablename,$name);    
     $updateTable->saveSchema();
@@ -80,21 +81,20 @@ if ($action=="update"){
 
 if ($action=="createnew"){
  $ret = $table->addRecordForm();
-  if ($ret){
-    $alert = Form::showAlert('success', __("CREATED",array(":record"=>$id,":type"=>"Customfield")));
-    
-    $tablename = $_POST['post-table']; 
-    $name = $_POST['post-name']; 
-    $type = $_POST['post-type']; 
-    $updateTable = New Query($tablename);
-    $updateTable->addField($name, $type);    
-    $updateTable->addFieldToRecords($tablename,$name,$type);
-    $updateTable->saveSchema();
-
-  } else {
-    $alert = Form::showAlert('error', __("CREATEDFAIL",array(":record"=>$id,":type"=>"Customfield")));
-  }
-  $action='view';
+    if ($ret){
+        $tablename = $_POST['post-table']; 
+        $name = $_POST['post-name']; 
+        $type = $_POST['post-type']; 
+        $updateTable = New Query($tablename);
+        $updateTable->addToCache($name);
+        $updateTable->addField($name, $type);    
+        $updateTable->addFieldToRecords($tablename,$name,$type);
+        $updateTable->saveSchema();
+        $alert = Form::showAlert('success', __("CREATED",array(":record"=>$id,":type"=>"Customfield")));
+    } else {
+        $alert = Form::showAlert('error', __("CREATEDFAIL",array(":record"=>$id,":type"=>"Customfield")));
+    }
+    $action='view';
 }
 
 
@@ -199,12 +199,15 @@ $record = $table->getFullRecord($id);
     if ($action=="edit"){
         $ogmaForm->displayField('post-name',__("NAME"),  'disabled' , '',$record['name']);
         $ogmaForm->displayField('post-table',__("TABLE"),   'disabled',  $tables, $record['table']);
-        $ogmaForm->displayField('post-type',__("TYPE"), 'disabled' , Form::getFields(),$record['type']);
+        $ogmaForm->displayField('post-type',__("TYPE"), 'disabled' , '',$record['type']);
+        $ogmaForm->displayField('post-cacheit',__("ADDTOCACHE"), 'disabled' , '',$record['cacheit']);
+           
     }
     if ($action=="create"){
         $ogmaForm->displayField('post-name',__("NAME"),  'textlong', '',$record['name']);
         $ogmaForm->displayField('post-table',__("TABLE"),   'dropdown' ,  $tables, $record['table']);
         $ogmaForm->displayField('post-type',__("TYPE"), 'dropdown', Form::getFields(),$record['type']);
+        $ogmaForm->displayField('post-cacheit',__("ADDTOCACHE"), 'yesno' , '',$record['cacheit']);
     }
     $ogmaForm->displayField('post-desc',__("DESCRIPTION"), 'textlong', '',$record['desc']);
     $ogmaForm->displayField('post-options',__("OPTIONS"),  'textarea', array('rows'=>'3'),$record['options']);
