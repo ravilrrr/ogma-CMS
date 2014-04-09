@@ -62,7 +62,6 @@ class Query {
 		$fields = explode("|", $this->tableOptions['cache']);
 		$fields[] = $field;
 		$this->tableOptions['cache'] = implode("|", $fields);
-		debug::pa($this->tableOptions['cache']);
 	}
 
 	public function removeFromCache($field){
@@ -70,7 +69,6 @@ class Query {
 		$fields = explode("|", $this->tableOptions['cache']);
 		$fields = Arr::arrayDelete($fields, $field);
 		$this->tableOptions['cache'] = implode("|", $fields);
-		debug::pa($this->tableOptions['cache']);
 	}
 
 	public function addField($name, $type, $update = false){
