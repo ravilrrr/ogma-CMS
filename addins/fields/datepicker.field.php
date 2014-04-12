@@ -20,7 +20,8 @@ class Datepicker
 			'd/m/Y' 	=> 'dd/MM/yyyy',
 			'Y:m:d' 	=> 'yyyy:MM:dd',
 			'm:d:Y' 	=> 'MM:dd:yyyy',
-			'd:m:Y' 	=> 'dd:MM:yyyy'
+			'd:m:Y' 	=> 'dd:MM:yyyy',
+			'd.m.Y' 	=> 'dd.MM.yyyy'				
 		);
 		
 		$dateformat = $dateformats[ Core::$site['dateformat'] ];
