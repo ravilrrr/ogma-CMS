@@ -119,18 +119,17 @@ class Form{
 	}
 
 	/**
-	 * [output description]
-	 * @return [type] [description]
+	 * Output freeform html 
 	 */
 	public  function output($text){
 		$this->formOutput .= $text;
 	}
 
 	/**
-    * End Tab Panes
+    * Create a Form
     *
-    * @param string $name Name of Pane
-    * @param boolean $active Set true for active Tab
+    * @param string $action, form action
+    * @param string $table, Table name for this form. 
     */
 	public  function createForm($action, $table=""){
 		//if ($id != "") $id=" id='".$id."' ";
@@ -165,30 +164,58 @@ class Form{
 
 
 	/**
-    * End Tab Panes
+    * End Form
     *
-    * @param string $name Name of Pane
-    * @param boolean $active Set true for active Tab
     */
 	public  function endform(){
 		$this->formOutput .=  '</form>';
 	} 
 
 	/**
-    * End Tab Panes
+	 * Create Panel
+	 *
+	 * @param string $title, title to display on panel
+	 * @param string $type, bootstrap class
+	 * @param string $name, Name of Panel
+	 * @param boolean, default to open  
+	 */
+	public function createPanel($title, $type="default", $name, $open = true){
+		$opened = ($open) ? "collapsed " : "";
+		$openedpanel = ($open) ? " " : " in";
+		$this->formOutput .= '  <div class="panel panel-'.$type.'" id="panel'.$name.'">';
+		$this->formOutput .= '    <div class="panel-heading">';
+		$this->formOutput .= '      <h4 class="panel-title">';
+		$this->formOutput .= '        <a data-toggle="collapse" data-target="#collapse'.$name.'" ';
+		$this->formOutput .= '           href="#collapse'.$name.'" class="'.$opened.'">';
+		$this->formOutput .= $title;
+		$this->formOutput .= '        </a>';
+		$this->formOutput .= '      </h4>';
+		$this->formOutput .= '    </div>';
+		$this->formOutput .= '    <div id="collapse'.$name.'" class="panel-collapse collapse '.$openedpanel.'">';
+		$this->formOutput .= '      <div class="panel-body">';
+	}
+
+	/**
+	 * End Panel.
+	 */
+	public function endPanel(){
+		$this->formOutput .= '      </div>';
+		$this->formOutput .= '    </div>';
+		$this->formOutput .= '  </div>';
+	}
+
+
+	/**
+    * Start Tab Headers
     *
-    * @param string $name Name of Pane
-    * @param boolean $active Set true for active Tab
     */
 	public  function startTabHeaders(){
 		$this->formOutput .=  '<ul class="nav nav-tabs">';
 	} 
 
 	/**
-    * End Tab Panes
+    * End Tab Headers
     *
-    * @param string $name Name of Pane
-    * @param boolean $active Set true for active Tab
     */
 	public  function endTabHeaders(){
 		$this->formOutput .=  '</ul>';
@@ -196,10 +223,8 @@ class Form{
 
 
 	/**
-    * End Tab Panes
+    * Start Tabs
     *
-    * @param string $name Name of Pane
-    * @param boolean $active Set true for active Tab
     */
 	public  function startTabs(){
 		$this->formOutput .=  '<div class="tabbable" >';
@@ -218,6 +243,9 @@ class Form{
 		}		
 	} 
 
+	/**
+	 * Show the form
+	 */
 	public function show(){
 		echo $this->formOutput;
 	}
