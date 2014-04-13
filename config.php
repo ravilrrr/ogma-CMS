@@ -1,7 +1,7 @@
 <?php
 // System Defines 
 
-define('VERSION','0.1b'); 
+define('VERSION','0.3b'); 
 
 // for paging. 
 define('PAGINGSIZE', 15);
