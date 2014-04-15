@@ -19,8 +19,8 @@ class Image
 			case "edit":
 				$this->value .= '<div class="form-group">';
 				$this->value .= '<label class="col-sm-2" for="'.$name.'">'.$label.'</label>';
-				$this->value .= '	<div class="col-sm-6">';
-				$this->value .= '<div class="input-append"><input class="form-control" id="'.$name.'" name="'.$name.'" placeholder="'.$label.'" value="'.$value.'" type="text"><button id="browse-"'.$name.'" class="btn icon-search" type="button"></button></div>';
+				$this->value .= '	<div class="col-sm-10">';
+				$this->value .= '<div class="input-group"><input class="form-control" id="'.$name.'" name="'.$name.'" placeholder="'.$label.'" value="'.$value.'" type="text"><span class="input-group-btn"><button id="browse-"'.$name.'" class="btn icon-search" type="button"><span class="glyphicon glyphicon-picture"></span></button></span></div>';
 				if ($help!='') $this->value .= '<p class="help-block">'.$help.'</p>';
 				$this->value .= '	</div>';
 				$this->value .= '</div>';
@@ -31,8 +31,8 @@ class Image
 			case "create":
 				$this->value .= '<div class="form-group">';
 				$this->value .= '<label class="col-sm-2" for="'.$name.'">'.$label.'</label>';
-				$this->value .= '	<div class="col-sm-6">';
-				$this->value .= '<div class="input-append"><input class="form-control" id="'.$name.'" name="'.$name.'" placeholder="'.$label.'"  value="'.$value.'" type="text"><button  id="browse-'.$name.'" class="btn" type="button"><i class="icon-search"></i></button></div>';
+				$this->value .= '	<div class="col-sm-10">';
+				$this->value .= '<div class="input-group"><input class="form-control" id="'.$name.'" name="'.$name.'" placeholder="'.$label.'" value="'.$value.'" type="text"><span class="input-group-btn"><button id="browse-"'.$name.'" class="btn icon-search" type="button"><span class="glyphicon glyphicon-picture"></span></button></span></div>';
 				if ($help!='') $this->value .= '<p class="help-block">'.$help.'</p>';
 				$this->value .= '	</div>';
 				$this->value .= '</div>';	
