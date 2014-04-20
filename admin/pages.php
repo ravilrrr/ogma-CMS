@@ -102,7 +102,7 @@ if ($action=='view'){
             ),
           // array of options, in this case entries for dropdown
           array(
-            'widths'=>'50|20|15',
+            'widths'=>'50|20|20',
             "status"=>array('Published'=>__("PUBLISHED"),'Draft'=>__("DRAFT"))
             ), true
         );
@@ -110,9 +110,12 @@ if ($action=='view'){
       $children = $table->reload();
       foreach ($records  as $record) {
        $table->htmlTableRow($record,array(
-            'widths'=>'5|45|20|15',
+            'widths'=>'5|50|20|20',
             "status"=>array('Published'=>__("PUBLISHED"),'Draft'=>__("DRAFT"))
-            ), true); 
+            ), true,
+            array('Clone'=>'pages.php?action=edit&clone',
+                  'Add Child'=>'pages.php?action=create&child='.$record['slug'])
+      ); 
 
        //see if there are any child pages
        
@@ -123,15 +126,13 @@ if ($action=='view'){
        if ($children->count()>0){
         foreach ($childrecords  as $childrecord) {
          $table->htmlTableRow($childrecord,array(
-              'widths'=>'6|50|20|15',
+              'widths'=>'6|50|20|20',
               "status"=>array('Published'=>__("PUBLISHED"),'Draft'=>__("DRAFT")),
               "indent"=>'title'
               ), true); 
          }
        }
       }
-
-
 
       $table->htmlTableFooter();
       Query::doPagination($page,$totalRecords);
@@ -146,9 +147,28 @@ if ($action=='view'){
 // =========
 
 if ($action=='edit' || $action=="create"){
+  $clone = Core::getOption('clone');
+  $child = Core::getOption('child');
 
-$record = $table->getFullRecord($id);
+  if ($action=="create" && $child){
+      $id=null;
+  }
+  
+  $record = $table->getFullRecord($id);
+  
+  if ($action=="edit" && $clone){
+      $action="create";
+      $record['id']='';
+      $record['slug']='';
+  } 
 
+  if ($action=="create" && $child){
+      $parent=$child;
+  }
+
+  if (isset($record['parent'])){
+    $parent = $record['parent'];
+  } 
   ?>
   <div class="col-md-12">
   <?php 
@@ -156,9 +176,10 @@ $record = $table->getFullRecord($id);
 
     $ogmaForm = new Form();
 
-    if ($action=="edit") $ogmaForm->addHeader(__("EDITPAGE")." : ".$record['title']);
+    if ($action=="edit" && !$clone) $ogmaForm->addHeader(__("EDITPAGE")." : ".$record['title']);
     if ($action=="create") $ogmaForm->addHeader(__("CREATEPAGE"));
-
+    if ($action=="edit" && $clone) $ogmaForm->addHeader(__("CLONEPAGE"));
+    
     $ogmaForm->startTabHeaders();
 
     $ogmaForm->createTabHeader(array('main'=>__("MAIN")),true);
@@ -186,9 +207,9 @@ $record = $table->getFullRecord($id);
     $ogmaForm->createTabPane('options',false);
     $ogmaForm->displayField('post-id','ID', 'hidden', '',$record['id']);
    
-    $ogmaForm->displayField('post-parent',__("PARENT"), 'pages', '',$record['parent']);
+    $ogmaForm->displayField('post-parent',__("PARENT"), 'pages', array('currentpage'=>$record['slug']),$parent);
     $ogmaForm->displayField('post-template',__("TEMPLATE"),  'templates', '',$record['template']);
-    $ogmaForm->displayField('post-private',__("PRIVATE"),  'yesno', 'no',$record['private']);
+    $ogmaForm->displayField('post-private',__("PRIVATE"),  'yesno', 'no' ,$record['private']);
     $ogmaForm->displayField('post-pubdate',__("PUBLISHEDDATE"),  'datetimepicker', '',$record['pubdate']);
     $ogmaForm->displayField('post-status',__("PUBLISHED"), 'dropdown', array('Published'=>__("PUBLISHED"),'Draft'=>__("DRAFT")),$record['status']);
     $ogmaForm->displayField('post-author',__("AUTHOR"),  'textlong', '',$record['author']);

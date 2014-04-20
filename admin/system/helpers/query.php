@@ -395,7 +395,7 @@ class Query {
 
 	}
 
-	public function htmlTableRow($row, $options, $showoptions = true ){
+	public function htmlTableRow($row, $options, $showoptions = true, $menu = array() ){
 			$fields=$this->fields;
 			$this->tableOutput .=  '<tr>';
 				    foreach ($fields as $item) {
@@ -420,6 +420,12 @@ class Query {
 					$this->tableOutput .=  '  </button>';
 					$this->tableOutput .=  ' <ul class="dropdown-menu">';
 			        $this->tableOutput .=  '  <li><a href="#" data-nonce="'.Security::getNonce('deleterecord',Core::getFilenameId().'.php').'" data-slug="'.$row['id'].'"  data-table="'.$this->table.'" class="delButton">'.__("DELETE").'</a></li>';
+			        	if (count($menu)>0){
+			        		foreach ($menu as $item=>$url) {
+			        			$this->tableOutput .=  '  <li><a href="'.$url.'&id='.$row['id'].'&table='.$this->table.'"  >'.$item.'</a></li>';
+			        		}
+			        	}
+			        		
 			        $this->tableOutput .=  '</ul>';
 					$this->tableOutput .=  '</div>';
 			        $this->tableOutput .=  '</td>';

@@ -9,8 +9,10 @@ class Pages
 
 	public  function __construct($name, $label, $type, $options,$value,$help) {
 	 	$pages = Core::$pages; 
+	 	$currentpage = isset($options['currentpage']) ? ',slug !='.$options['currentpage'] : '';
 	 	$pages->getCache();
-	 	$this->pageList = $pages->find('slug !=404 , parent = ')->get(); 	
+	 	$this->pageList = $pages->find('slug !=404 '.$currentpage.', parent = ')->get(); 	
+	 	$currentpage = isset($options['currentpage']) ? $options['currentpage'] : '1';
 	 	self::doPages($name, $label, $type, $options,$value,$help);
 	}
 	 

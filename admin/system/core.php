@@ -362,7 +362,7 @@ class Core {
 
 	public static function getAction(){
 		if ( isset( $_GET['action'] ) ){
-			if (in_array($_GET['action'], array('view','create', 'delete','edit','deleterecord','update','createnew','updatemenu','opt' ) )){
+			if (in_array($_GET['action'], array('view','create', 'delete','edit','deleterecord','update','createnew','updatemenu','opt','clone' ) )){
 				return $_GET['action'];
 			} else {
 				$_GET['action'] = "view";
@@ -371,6 +371,13 @@ class Core {
 		} else {
 			$_GET['action'] = "view";
 			return $_GET['action'];
+		}
+	}
+
+	public static function getOption($name){
+		if (isset($_GET[$name])){
+
+			return ($_GET[$name]!='') ? $_GET[$name] : true;
 		}
 	}
 
