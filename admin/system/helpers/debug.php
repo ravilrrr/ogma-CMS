@@ -42,8 +42,7 @@ class Debug{
     }
 
     public static function showConsole(){
-    	echo '<div class="container"><div class="row">';
-		echo '<div class="col-md-12">';
+    	echo '<div class="row"><div class="container">';
 		echo '<div id="debugconsole"><h4>'.__('DEBUG_CONSOLE').'</h4>';
 		echo '<pre>';
 		$count = count(Debug::$log);
@@ -66,7 +65,6 @@ class Debug{
 		}
 		echo '</pre>';	
 		echo '</div></div>';
-		echo '</div>';
     }
 
     public static function timerRead($name) {
