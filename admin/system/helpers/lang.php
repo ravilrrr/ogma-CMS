@@ -332,33 +332,43 @@ class Lang{
 
     public static function loadLanguage($file){
 		$language = Core::$site['language'];
-		$lang = Lang::$langnames;
 		if (file_exists($file)){
 			require_once($file);
-			Lang::$language[$language] = array();
 			foreach ($lang as $code => $text) {
-			    if (!array_key_exists($code, Lang::$language[$language])) {
-			    	 Lang::$language[$language][$code] = $text;
-			    }
-			  }
+			    Lang::$language[$code] = $text;
+			}
 		}
 
 	}
 
 	public static function mergeLanguage($file){
 		$language = Core::$site['language'];
-		$lang = Lang::$langnames;
 		if (file_exists($file)){
 			require_once($file);
 			foreach ($lang as $code => $text) {
-			    if (!array_key_exists($code, Lang::$language[$language])) {
-			    	 Lang::$language[$language][$code] = $text;
-			    }
-			  }
+				Lang::$language[$code] = $text;
+			}
 		}
 
 	}
 
+	public static function mergePluginLanguage($plugin){
+		$language = Core::$site['language'];
+		$file = Core::$settings['pluginpath'].$plugin.DS.'lang'.DS.'en.lang.php';
+		if (file_exists($file)){
+			require_once($file);
+			foreach ($lang as $code => $text) {
+			    	 Lang::$language[$code] = $text;
+			  }
+		}
+		$file = Core::$settings['pluginpath'].$plugin.DS.'lang'.DS.$language.'.lang.php';
+		if (file_exists($file)){
+			require_once($file);
+			foreach ($lang as $code => $text) {
+			    	 Lang::$language[$code] = $text;
+			  }
+		}
+	}
 
 	/**
 	 * Get Current Language
@@ -427,8 +437,8 @@ class Lang{
 	 * @return string Translated String or '** $name **'' if it does not exist 
 	 */
 	public static function langDisplay($name){
-		if (array_key_exists(Core::$site['language'],Lang::$language ) && array_key_exists($name, Lang::$language[Core::$site['language']])){
-			return Lang::$language[Core::$site['language']][$name] ;
+		if ( array_key_exists($name, Lang::$language)){
+			return Lang::$language[$name] ;
 			//return "&&&";
 		} else {
 			return "** ".$name." **";

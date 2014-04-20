@@ -94,7 +94,11 @@ class Core {
 
         	$lang = User::getLanguage();
         }
- 		Lang::loadLanguage(Core::$settings['rootpath'].'/addins/languages/'.$lang.'.lang.php');
+
+ 		Lang::loadLanguage(Core::$settings['rootpath'].'/addins/languages/en.lang.php');
+ 		if ($lang!='en'){
+	 		Lang::loadLanguage(Core::$settings['rootpath'].'/addins/languages/'.$lang.'.lang.php');
+	 	}
         require_once('startup.php');
 
          //

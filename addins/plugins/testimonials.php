@@ -41,7 +41,7 @@ class Testimonials{
             Actions::addAction('admin-add-to-dashboard','Menu::addDashboardItem',1,array("Testimonials",'','testimonials','fa fa-fw fa-edit'));
         }
         $language = Core::$site['language'];
-        Lang::mergeLanguage(Core::$settings['pluginpath'].'testimonials'.DS.'lang'.DS.$language.'.lang.php');
+        Lang::mergePluginLanguage('testimonials');
     }
 
     public static function initShortcodes(){
