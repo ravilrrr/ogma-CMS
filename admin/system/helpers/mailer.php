@@ -1,6 +1,6 @@
-<?php 
+<?php
 
- /**
+/**
  *  OGMA CMS Mailer Module
  *
  *  @package ogmaCMS
@@ -10,36 +10,36 @@
  *
  */
 
-class Mailer{
+class Mailer {
     
-	
-   
+    
+    
     public function __construct() {
-    	// nothing			
+        // nothing			
     }
-
-   
-    public function sendmail($to,$subject,$message) {
-
-		$message = $this->email_template($message);
-
-		$fromemail = Core::$site['email'];
-
-		$headers  ='"MIME-Version: 1.0' . PHP_EOL;
-		$headers .= 'Content-Type: text/html; charset=UTF-8' . PHP_EOL;
-		$headers .= 'From: '.$fromemail . PHP_EOL;
-		$headers .= 'Reply-To: '.$fromemail . PHP_EOL;
-		$headers .= 'Return-Path: '.$fromemail . PHP_EOL;
-
-		if( @mail($to,'=?UTF-8?B?'.base64_encode($subject).'?=',"$message",$headers) ) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public function email_template($message) {
-		$data = '
+    
+    
+    public function sendmail($to, $subject, $message) {
+        
+        $message = $this->email_template($message);
+        
+        $fromemail = Core::$site['email'];
+        
+        $headers = '"MIME-Version: 1.0' . PHP_EOL;
+        $headers .= 'Content-Type: text/html; charset=UTF-8' . PHP_EOL;
+        $headers .= 'From: ' . $fromemail . PHP_EOL;
+        $headers .= 'Reply-To: ' . $fromemail . PHP_EOL;
+        $headers .= 'Return-Path: ' . $fromemail . PHP_EOL;
+        
+        if (@mail($to, '=?UTF-8?B?' . base64_encode($subject) . '?=', "$message", $headers)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public function email_template($message) {
+        $data = '
 		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 		<html xmlns="http://www.w3.org/1999/xhtml">
 		<head>
@@ -57,7 +57,7 @@ class Mailer{
 						<table border="0" cellpadding="0" cellspacing="0" width="580" style="border-radius:3px;">
 							<tr>
 								<td style="background:#fff;border-bottom:1px solid #e1e1e1;border-right:1px solid #e1e1e1;border-left:1px solid #e1e1e1;font-size:13px;font-family:arial, helvetica, sans-serif;padding:20px;line-height:22px;" >
-									'.$message.'
+									' . $message . '
 								</td>
 							</tr>
 							<tr>
@@ -73,10 +73,9 @@ class Mailer{
 		</body>
 		</html>
 		';
-		return $data;
-	}
-
-
+        return $data;
+    }
+    
+    
     
 }
-?>

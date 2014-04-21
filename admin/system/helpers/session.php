@@ -1,6 +1,6 @@
-<?php 
+<?php
 
- /**
+/**
  *	ogmaCMS Session Module
  *
  *	@package ogmaCMS
@@ -11,21 +11,22 @@
  */
 
 class Session {
-
-	public static function startSession(){
-		session_start();
-	}
-
-	public static function stopSession(){
-		if (isset($_SESSION)) session_destroy();
-	}
-        
-    public static function set($name, $value){
+    
+    public static function startSession() {
+        session_start();
+    }
+    
+    public static function stopSession() {
+        if (isset($_SESSION))
+            session_destroy();
+    }
+    
+    public static function set($name, $value) {
         return $_SESSION[$name] = $value;
     }
     
-    public static function get($name){
+    public static function get($name) {
         return isset($_SESSION[$name]) ? $_SESSION[$name] : '';
     }
-	
+    
 }

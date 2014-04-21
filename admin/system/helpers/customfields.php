@@ -1,6 +1,6 @@
-<?php 
+<?php
 
- /** 
+/** 
  *  OGMA CMS Customfields Module
  *
  *  @package ogmaCMS
@@ -10,41 +10,40 @@
  *
  */
 
-class Customfields{
+class Customfields {
     
-	public static $fields = array();
-   
+    public static $fields = array();
+    
     public function __construct() {
-    	self::loadFields();		
+        self::loadFields();
     }
-
-	public static function loadFields(){
-    	$file=ROOT.'data/customfields.xml';
-      if (file_exists($file)){
-      // load the xml file and setup the array. 
+    
+    public static function loadFields() {
+        $file = ROOT . 'data/customfields.xml';
+        if (file_exists($file)) {
+            // load the xml file and setup the array. 
             $thisfile = file_get_contents($file);
         } else {
             $thisfile = '<?xml version="1.0" encoding="utf-8"?><root></root>';
-      }
-
-        $data = simplexml_load_string($thisfile);
+        }
+        
+        $data       = simplexml_load_string($thisfile);
         $components = @$data->item;
         if (count($components) != 0) {
             foreach ($components as $component) {
-            $name=(string)$component->name;
-               Customfields::$fields[(string)$component->name] = array(
-                    'name' => (string)$component->name, 
-                    'type' => (string)$component->type,
-                    'table' => (string)$component->table,
-                    'desc' => (string)$component->desc
-                    );
+                $name                                            = (string) $component->name;
+                Customfields::$fields[(string) $component->name] = array(
+                    'name' => (string) $component->name,
+                    'type' => (string) $component->type,
+                    'table' => (string) $component->table,
+                    'desc' => (string) $component->desc
+                );
             }
         }
-    }  
-
-    public static function getFields(){
-    	return Customfields::$fields;
     }
-
+    
+    public static function getFields() {
+        return Customfields::$fields;
+    }
+    
 }
-?>

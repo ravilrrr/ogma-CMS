@@ -1,6 +1,6 @@
-<?php 
+<?php
 
- /**
+/**
  *	ogmaCMS Settings Module
  *
  *	@package ogmaCMS
@@ -11,13 +11,11 @@
  */
 
 class Settings {
-
-	public $settings = array();
-
-	public function __construct() {
-		
-    }
-
     
-	
+    public $settings = array();
+    
+    public function __construct() {
+        
+    }
+   
 }

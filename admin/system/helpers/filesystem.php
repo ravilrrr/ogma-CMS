@@ -1,6 +1,6 @@
-<?php 
+<?php
 
- /**
+/**
  *  OGMA CMS Actions Module
  *
  *  @package ogmaCMS
@@ -10,22 +10,21 @@
  *
  */
 
-class Filesystem{
-
-
-	public function __construct($table) {
-	 	// nothing
-	}
-
-
-	public static function writeFile($file, $content){
-		$ret = file_put_contents($file, $content); 
-		Debug::addLog("Writing file - (".$ret.")".$file);
-		return $ret; 
-	}
-
-	public static function readFile($file){
-		Debug::addLog("Reading file - ".$file);
-		return file_get_contents($file);
-	}
+class Filesystem {
+	
+    public function __construct($table) {
+        // nothing
+    }
+    
+    
+    public static function writeFile($file, $content) {
+        $ret = file_put_contents($file, $content);
+        Debug::addLog("Writing file - (" . $ret . ")" . $file);
+        return $ret;
+    }
+    
+    public static function readFile($file) {
+        Debug::addLog("Reading file - " . $file);
+        return file_get_contents($file);
+    }
 }

@@ -1,6 +1,6 @@
-<?php 
+<?php
 
- /**
+/**
  *  ogmaCMS Template Module
  *
  *  @package ogmaCMS
@@ -10,52 +10,51 @@
  *
  */
 
-class Template{
-
+class Template {
+    
     public function __construct() {
-
+        
     }
     
- 	public static function get_site_name(){
-    	echo Core::$site['sitename'];
+    public static function get_site_name() {
+        echo Core::$site['sitename'];
     }
-
- 	public static function getThemeUrl($echo = true){
-    	global $TEMPLATE;
+    
+    public static function getThemeUrl($echo = true) {
+        global $TEMPLATE;
         if ($echo) {
-    	   echo  Core::$site['siteurl'].'/theme/'.$TEMPLATE;
-        }  else {
-           return Core::$site['siteurl'].'/theme/'.$TEMPLATE;
-        }  
-    }   
-
-    public static function getSiteUrl($echo = true){
-        if ($echo) {
-            echo  Core::$site['siteurl'];
+            echo Core::$site['siteurl'] . '/theme/' . $TEMPLATE;
         } else {
-            return Core::$site['siteurl'];
-        }  
+            return Core::$site['siteurl'] . '/theme/' . $TEMPLATE;
+        }
     }
-
-	public static function get_site_url($echo = true){
-    	 if ($echo) {
-            echo  Core::$site['siteurl'];
+    
+    public static function getSiteUrl($echo = true) {
+        if ($echo) {
+            echo Core::$site['siteurl'];
         } else {
             return Core::$site['siteurl'];
         }
-    }  
-     
-    public static function getUploadUrl($echo = true){
+    }
+    
+    public static function get_site_url($echo = true) {
         if ($echo) {
-            echo  Url::returnUrl(Core::$settings['uploadpath']);
+            echo Core::$site['siteurl'];
+        } else {
+            return Core::$site['siteurl'];
+        }
+    }
+    
+    public static function getUploadUrl($echo = true) {
+        if ($echo) {
+            echo Url::returnUrl(Core::$settings['uploadpath']);
         } else {
             return Url::returnUrl(Core::$settings['uploadpath']);
         }
     }
-
-    public static function getSiteCredits(){
+    
+    public static function getSiteCredits() {
         echo "Powered by Ogma CMS";
     }
-
+    
 }
-?>
