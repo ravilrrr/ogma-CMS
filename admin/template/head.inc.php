@@ -72,7 +72,7 @@ if (!User::hasPerms(Core::getFilenameId()) && Core::getFilenameId()!="error") {
     </script>
     <?php 
       echo '<script type="text/javascript">';
-      echo 'var i18n = '.json_encode (Lang::$language[Core::$site['language']]).';';
+      echo 'var i18n = '.json_encode (Lang::$language).';';
       echo '</script>';
     ?>
   </head>
