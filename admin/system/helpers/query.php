@@ -619,7 +619,7 @@ class Query {
 		return $this;
 	}
 
-	public static function getSortOptions( $sort, $dir){
+	public static function getSortOptions( $sort = 'id', $dir = 'asc'){
 		$tmpArray = array();
 		$tmpArray['page']     =  isset($_GET['page']) ? $_GET['page'] : 0;
 		$tmpArray['sort']     =  isset($_GET['sort']) ? $_GET['sort'] : $sort;
