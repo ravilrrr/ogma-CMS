@@ -129,7 +129,10 @@ if ($action=='view'){
               'widths'=>'6|50|20|15',
               "status"=>array('Published'=>__("PUBLISHED"),'Draft'=>__("DRAFT")),
               "indent"=>'title'
-              ), true); 
+              ), true,
+            array('Clone'=>'pages.php?action=edit&clone',
+                  'Add Child'=>'pages.php?action=create&child='.$record['slug'])
+            ); 
          }
        }
       }
@@ -155,7 +158,8 @@ if ($action=='edit' || $action=="create"){
   }
   
   $record = $table->getFullRecord($id);
-  
+  $parent = '';
+
   if ($action=="edit" && $clone){
       $action="create";
       $record['id']='';
