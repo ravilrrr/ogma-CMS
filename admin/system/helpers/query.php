@@ -643,7 +643,9 @@ class Query {
 	}
 	// return top n records
 	public function top($num){
-        $this->queryresults = array_slice($this->queryresults, 0, $num, true);
+		if (count($this->queryresults)>=$num){
+	        $this->queryresults = array_slice($this->queryresults, 0, $num, true);
+	    }
         return $this;
     }
 
@@ -890,8 +892,7 @@ class Query {
 			$parts = $this->parse($selector);
 			$key = trim($parts[1]);
 			$operator = trim($parts[2]);
-			$value = trim($parts[3]);
-
+			$value =  trim($parts[3]);
 			$records = $this->queryresults;
 			$this->queryresults = array();
 			$keys = explode("|", $key);
