@@ -183,6 +183,7 @@ jQuery(document).ready(function ()
         ); 
 	})
   	$('button').tooltip({container: 'body'});
+  	$('a').tooltip({container: 'body'});
 
   	$(".icon-picker").iconPicker();
 
