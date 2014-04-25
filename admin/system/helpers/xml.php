@@ -78,7 +78,7 @@ class Xml {
 			/*
 			$xml = simplexml_load_string("<?xml version='1.0' encoding='utf-8'?><$rootNodeName />");
 			*/
-			$xml = new SimpleXMLExtended("<$rootNodeName/>");;
+			$xml = new SimpleXMLExtended("<?xml version='1.0' encoding='utf-8'?><$rootNodeName />");;
 		}
  
 		// loop through the data passed in.
