@@ -104,7 +104,7 @@ class Xml {
 			else 
 			{
 				// add single node
-                $value = htmlentities($value);
+                //$value = htmlentities($value);
 				
 				if ($key=='id'){
 					$xml->addChild($key,$value);
