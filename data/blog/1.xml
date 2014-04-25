@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding='utf-8'?>
 <root><slug><![CDATA[sample-blog-post]]></slug><title><![CDATA[Sample blog post]]></title><pubdate><![CDATA[1388572860]]></pubdate><author><![CDATA[Mark]]></author><tags><![CDATA[programming, linux]]></tags><status><![CDATA[Published]]></status><comments><![CDATA[1]]></comments><metat><![CDATA[]]></metat><metad><![CDATA[]]></metad><metak><![CDATA[]]></metak><content><![CDATA[This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.  
 
 Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.  

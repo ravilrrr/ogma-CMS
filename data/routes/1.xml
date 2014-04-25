@@ -1,2 +1,2 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding='utf-8'?>
 <root><slug><![CDATA[blog-archive]]></slug><route><![CDATA[/blog/archive/:number/:number]]></route><desc><![CDATA[Blog Archives]]></desc><page><![CDATA[blog]]></page><id>1</id></root>
