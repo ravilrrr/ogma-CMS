@@ -27,7 +27,7 @@ class Xml {
 	 
 	 public static function loadFile($file) {
 	     if (file_exists($file) && is_file($file)) {
-	            $xml = Filesystem::readFile($file);
+	            $xml = utf8_encode(Filesystem::readFile($file));
 	            $data = simplexml_load_string($xml);
 	            return $data;
 	     } else {
