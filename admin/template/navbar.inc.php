@@ -59,6 +59,7 @@
                                 <a href="files.php"><i class="fa fa-fw fa-folder-open"></i> <?php echo __('FILES'); ?></a>
                             </li>
                             <?php } ?>
+                            <?php Actions::executeAction('menu-add-content'); ?>
                           </ul>
                         </li>
 
@@ -81,6 +82,7 @@
                                 <li <?php Menu::checkCurrent('themehooks'); ?>>
                                     <a href="themehooks.php?action=view"><i class="fa fa-fw fa-th"></i> <?php echo __('THEMEHOOKS'); ?></a>
                                 </li>
+                            <?php Actions::executeAction('menu-add-theme'); ?>
                             <?php } ?>
                             </ul>
                         </li>
@@ -98,7 +100,7 @@
                                 </li>
                                 <?php } ?>
                                 
-                                <?php Actions::executeAction('admin-add-sidebar');      ?>  
+                                <?php Actions::executeAction('menu-add-plugin'); ?>  
                             </ul>
                         </li>
 
@@ -140,6 +142,7 @@
                                 <li <?php Menu::checkCurrent('about'); ?>>
                                     <a href="about.php"><i class="fa fa-fw fa-exclamation"></i> <?php echo __('ABOUT'); ?></a>
                                 </li>  
+                                <?php Actions::executeAction('menu-add-settings'); ?>
                             </ul>
                         </li>
 
@@ -192,7 +195,7 @@
                                             <a href="index.php?auth=logout"><?php echo __('LOGOUT'); ?></a>
                                     </li>
                                     </ul>
-                                    </li>
+                                </li>
                         </ul>
                 </div>
             </div>

@@ -18,7 +18,7 @@ class Helloworld{
     }
 
     public static function init(){
-        Actions::addAction('admin-add-sidebar','Menu::addSidebarMenu',1,array("Helloworld",'','helloworld','glyphicon glyphicon-asterisk'));
+        Actions::addAction('menu-add-plugin','Menu::addSidebarMenu',1,array("Helloworld",'','helloworld','glyphicon glyphicon-asterisk'));
         Actions::addAction('admin-add-to-dashboard','Menu::addDashboardItem',1,array("Helloworld",'','helloworld','fa fa-fw fa-smile-o'));
         Actions::addAction('admin-add-widget','Helloworld::widget',1,array());
        

@@ -18,7 +18,7 @@ class Comments {
     }
 
     public static function init(){
-        Actions::addAction('admin-add-sidebar','Menu::addSidebarMenu',1,array("Comments",'','comments&action=edit','fa fa-fw fa-comment'));
+        Actions::addAction('menu-add-plugin','Menu::addSidebarMenu',1,array("Comments",'','comments&action=edit','fa fa-fw fa-comment'));
         $language = Core::$site['language'];
         Lang::mergePluginLanguage('comments');
       

@@ -18,7 +18,7 @@ class TwitterFeed {
     }
 
     public static function init(){
-        Actions::addAction('admin-add-sidebar','Menu::addSidebarMenu',1,array("Twitter",'','twitterfeed&action=edit','fa fa-fw fa-twitter'));
+        Actions::addAction('menu-add-plugin','Menu::addSidebarMenu',1,array("Twitter",'','twitterfeed&action=edit','fa fa-fw fa-twitter'));
         Actions::addAction('admin-add-to-dashboard','Menu::addDashboardItem',1,array("twitter",'','twitterfeed&action=edit','fa fa-fw fa-twitter'));
         $language = Core::$site['language'];
         Lang::mergePluginLanguage('twitterfeed');

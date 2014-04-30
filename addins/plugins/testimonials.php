@@ -37,7 +37,7 @@ class Testimonials{
 
         }
         if (Query::tableExists('testimonials')){
-            Actions::addAction('admin-add-sidebar','Menu::addSidebarMenu',1,array("Testimonials",'','testimonials','fa fa-fw fa-edit'));
+            Actions::addAction('menu-add-plugin','Menu::addSidebarMenu',1,array("Testimonials",'','testimonials','fa fa-fw fa-edit'));
             Actions::addAction('admin-add-to-dashboard','Menu::addDashboardItem',1,array("Testimonials",'','testimonials','fa fa-fw fa-edit'));
         }
         $language = Core::$site['language'];
