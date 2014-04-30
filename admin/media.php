@@ -133,7 +133,7 @@ $record = $table->getFullRecord($id);
         $ogmaForm->startTabHeaders();
 
         if ($action=="edit") $ogmaForm->addHeader(__("EDITMEDIA")." : ".$record['title']);
-        if ($action=="create") $ogmaForm->addHeader(__("CREATEMEDIA"));
+        if ($action=="create") $ogmaForm->addHeader( __("CREATENEW",array(":type"=>"Media")) );
 
 
         $ogmaForm->createTabHeader(array('main'=>__("MAIN")),true);
