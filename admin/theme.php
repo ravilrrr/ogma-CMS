@@ -24,7 +24,7 @@ $id = Core::getID();                    // get page ID
 $theme = Core::$site['template'];
 $settings = Theme::$themeInfo[$theme]['options'];
 $alert = '';
-// Update a Blog Entry
+
 if ($action=="update"){
 	
 	$ret= Theme::saveSettings();	
@@ -45,7 +45,7 @@ if ($action=="update"){
 	<?php 
   		Core::getAlerts();
 	?>
-	<legend>Edit Theme Settings</legend>
+	<legend><?php echo __("EDITTHEMEOPTIONS"); ?></legend>
 
 	<?php 
 	if ($action=='edit'){
