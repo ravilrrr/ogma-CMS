@@ -159,7 +159,6 @@ $record = $table->getFullRecord($id);
     $ogmaForm->show();
 
     ?>
-	</div>
 <?php
 } 
 include "template/footer.inc.php";

@@ -251,7 +251,7 @@ if ($action=='create'){
 $record = $table->getFullRecord($id);
 ?>
 
-<div class="col-md-10">
+<div class="col-md-12">
     
     <?php 
 
@@ -273,7 +273,7 @@ $record = $table->getFullRecord($id);
 
         $ogmaForm->displayField('post-menuname',__("NAME"),  'textlong', '','');
 
-         Actions::executeAction('menu-tab-new');
+        Actions::executeAction('menu-tab-new');
 
         $ogmaForm->endTabs();
         
@@ -285,11 +285,8 @@ $record = $table->getFullRecord($id);
         $ogmaForm->show();
 
         ?>
-
-	</div>
-
-
-
+  </div>  
+</div>
 <?php 
 // end add new page code
 }

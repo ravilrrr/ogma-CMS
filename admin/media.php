@@ -173,7 +173,7 @@ $record = $table->getFullRecord($id);
         $ogmaForm->show();
 
     ?>
-  </div>
+
 <?php
 
 // end add new page code

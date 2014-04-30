@@ -76,7 +76,6 @@ include "template/navbar.inc.php";
 </tbody>
 </table>
 </div>
-
 <?php 
     include "template/footer.inc.php"; 
 ?>

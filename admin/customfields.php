@@ -226,7 +226,6 @@ $record = $table->getFullRecord($id);
     $ogmaForm->show();
 
     ?>
-	</div>
 <?php
 } 
 

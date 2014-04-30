@@ -95,14 +95,14 @@ if ($action=='view'){
             ),
           // array of options, in this case entries for dropdown
           array(
-            'widths'=>'50|20|15',
+            'widths'=>'50|20|20',
             "status"=> array('Published'=>__("PUBLISHED"),'Draft'=>__("DRAFT"))
             ), true
         );
       if (count($records)>0){
         foreach ($records  as $record) {
          $table->htmlTableRow($record,array(
-              'widths'=>'5|45|20|15',
+              'widths'=>'5|50|20|15',
               "status"=> array('Published'=>__("PUBLISHED"),'Draft'=>__("DRAFT"))
               ), true); 
 
@@ -154,6 +154,7 @@ $record = $table->getFullRecord($id);
     $ogmaForm->createTabPane('main',true);
     $ogmaForm->displayField('post-title',__('PAGETITLE'), 'textlong', array('class'=>' required'),$record['title']);
     $ogmaForm->displayField('post-slug',__('PAGESLUG'), 'slug', '' ,$record['slug']);
+    $ogmaForm->displayField('post-image',__('IMAGE'), 'image', '' ,$record['image']);
     $ogmaForm->displayField('post-content',__('CONTENT'), 'editor', array('rows'=>15),$record['content']);
 
     $ogmaForm->createTabPane('options',false);
@@ -185,7 +186,7 @@ $record = $table->getFullRecord($id);
     $ogmaForm->show();
 
     ?>
-	</div>
+
 <?php
 } 
 include "template/footer.inc.php";

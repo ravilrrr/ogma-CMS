@@ -54,7 +54,7 @@ if ($action=="update"){
 		}
 	}
 	?>
-</div>
+
 <?php 
 	include "template/footer.inc.php"; 
 ?>

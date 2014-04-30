@@ -248,7 +248,6 @@ if ($action=='edit' || $action=="create"){
       echo Form::showAlert('error', __("NOPERMISSION"));;
     }
     ?>
-	</div>
 
 <?php
 } 

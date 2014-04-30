@@ -178,7 +178,7 @@ if ($action=='edit' || $action=="create"){
     $ogmaForm->show();
 
     ?>
-	</div>
+
 <?php
 } 
 
