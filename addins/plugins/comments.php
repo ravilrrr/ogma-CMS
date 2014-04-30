@@ -36,15 +36,19 @@ class Comments {
         $action = Core::getAction();            // get URI action
         $id = Core::getID();                    // get page ID
         
+        $settings = Plugins::getSettings(ROOT . 'addins/plugins/comments/data/settings.xml');
+        
         if ($action=="update"){
-            $settings = Xml::xml2array(ROOT . 'addins/plugins/comments/data/settings.xml');
+           
             $savesettings = $settings;
             foreach ($settings as $item=>$val){
                 if (isset($_POST['post-'.$item])) {
                     $savesettings[$item]=$_POST['post-'.$item];
                 }
             }
-            $ret=file_put_contents(ROOT . 'addins/plugins/comments/data/settings.xml', Xml::arrayToXml($savesettings));
+
+            $ret = Plugins::saveSettings(ROOT . 'addins/plugins/comments/data/settings.xml', Xml::arrayToXml($savesettings));
+
             if ($ret){
                  Core::addAlert( Form::showAlert('success', __("UPDATED",array(":record"=>"",":type"=>__("SETTINGS"))) ));
             } else {
@@ -53,8 +57,6 @@ class Comments {
             $action='edit'; 
             $_GET['action']='edit';  
         }
-
-        $settings = Xml::xml2array(ROOT . 'addins/plugins/comments/data/settings.xml');
 
         if ($action=="edit"){
 
@@ -110,6 +112,12 @@ class Comments {
         dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>

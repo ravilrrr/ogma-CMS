@@ -56,16 +56,19 @@ class TwitterFeed {
     public static function admin(){
         $action = Core::getAction();            // get URI action
         $id = Core::getID();                    // get page ID
-        
+
+        $settings = Plugins::getSettings(ROOT . 'addins/plugins/twitterfeed/data/settings.xml');
+
         if ($action=="update"){
-            $settings = Xml::xml2array(ROOT . 'addins/plugins/twitterfeed/data/settings.xml');
             $savesettings = $settings;
             foreach ($settings as $item=>$val){
                 if (isset($_POST['post-'.$item])) {
                     $savesettings[$item]=$_POST['post-'.$item];
                 }
             }
-            $ret=file_put_contents(ROOT . 'addins/plugins/twitterfeed/data/settings.xml', Xml::arrayToXml($savesettings));
+
+            $ret = Plugins::saveSettings(ROOT . 'addins/plugins/twitterfeed/data/settings.xml', Xml::arrayToXml($savesettings));
+            
             if ($ret){
                  Core::addAlert( Form::showAlert('success', __("UPDATED",array(":record"=>"",":type"=>__("SETTINGS"))) ));
             } else {
@@ -74,8 +77,6 @@ class TwitterFeed {
             $action='edit'; 
             $_GET['action']='edit';  
         }
-
-        $settings = Xml::xml2array(ROOT . 'addins/plugins/twitterfeed/data/settings.xml');
 
         if ($action=="edit"){
 
