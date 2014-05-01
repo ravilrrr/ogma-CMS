@@ -157,5 +157,9 @@ class Plugins{
         return Filesystem::writeFile($file, $data);
     }
 
+    public static function enabled($name){
+        return isset(Plugins::$installedPlugins[$name]);
+    }
+
 }
 ?>
