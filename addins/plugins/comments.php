@@ -30,6 +30,7 @@ class Comments {
 
     public static function initFrontend(){
         Actions::addAction('bootstrap-blog-comments', 'Comments::showComments',1,array());
+        Actions::addAction('index-footer', 'Comments::showCount',1,array());
     }
     
     public static function admin(){
@@ -91,7 +92,7 @@ class Comments {
 
             $ogmaForm->show();
 
-           echo '</div>';
+            echo '</div>';
         }
     }
 
@@ -121,6 +122,29 @@ class Comments {
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+INLINECODE;
+        echo $coment_code;
+    }
+
+
+    public static function showCount(){
+         $settings = Xml::xml2array(ROOT . 'addins/plugins/comments/data/settings.xml');
+
+        $curUrl= ''; 
+        $coment_code = "\n<!-- START: external_coments plugin embed code -->\n";  
+        $coment_code .= '<script type="text/javascript">';
+        $coment_code .= "var disqus_shortname = '" . $settings['shortname'] . "';"; 
+        $coment_code .= "var disqus_identifier = '" . Core::$page['type'].'-'.Core::$page['id'] . "';";
+        $coment_code .= "var disqus_url = '" . Core::$page['url'] . "';";
+        $coment_code .= "var disqus_title = '" . Core::$page['title'] . "';";
+        $coment_code .= <<<INLINECODE
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
 INLINECODE;
         echo $coment_code;
     }
