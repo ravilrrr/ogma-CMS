@@ -3,7 +3,7 @@
 // Twitter Feed plugin for OGMA CMS
 
 Plugins::registerPlugin( 
-				'comments',
+                'comments',
                 'Disqus Comments',
                 'Disqus Comments plugin for OGMA',
                 '0.0.1',
@@ -72,7 +72,7 @@ class Comments {
             $ogmaForm->startTabHeaders();
 
             $ogmaForm->createTabHeader(array('main'=>'Main'),true);
-            
+                     
             Actions::executeAction('comments-tab-header');
 
             $ogmaForm->endTabHeaders();
@@ -82,7 +82,7 @@ class Comments {
             $ogmaForm->startTabs();
             $ogmaForm->createTabPane('main',true);
             $ogmaForm->displayField('post-shortname', __("COMMENTS_SHORTNAME") ,  'text', '',$settings['shortname']);
-         
+            
             Actions::executeAction('comments-tab-new');
 
             $ogmaForm->endTabs();

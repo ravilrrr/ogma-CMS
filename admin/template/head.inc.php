@@ -45,7 +45,7 @@ if (!User::hasPerms(Core::getFilenameId()) && Core::getFilenameId()!="error") {
     }
     ?>
 
-    <title><?php echo Core::$site['sitename']; ?> - Admin</title>
+    <title><?php echo Core::$site['sitename']; ?> - <?php echo __("ADMIN"); ?></title>
    	
     <?php Actions::executeAction('admin-header'); ?> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>

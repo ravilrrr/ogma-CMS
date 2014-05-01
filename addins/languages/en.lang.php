@@ -324,6 +324,7 @@ $lang = array
     "CREATEFOLDER" =>       "Create a new Folder",
     "FOLDERNAME" =>         "Folder Name",
     "ADDTOCACHE" =>         "Add field to Cache",
-    "ADDMEDIA" =>           "Add to Media"
+    "ADDMEDIA" =>           "Add to Media",
+    "ADMIN" =>              "Admin Panel"
 )
 ?>
