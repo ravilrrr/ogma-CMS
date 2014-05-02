@@ -19,7 +19,7 @@ class Fm {
         $path =  isset($_GET['path']) ? $_GET['path'] : null;
         foreach($folders as $folder){ 
 
-            $edit = '<a href=""><i class="fa fa-fw fa-pencil"></i></a>&nbsp;';
+            $edit = '<a href="javascript:void(0)"><i class="fa fa-fw fa-pencil"></i></a>&nbsp;';
             //$move = '<a href=""><i class="icon-arrow-right"></i></a>&nbsp;';
             $remove = '<a href=""><i class="fa fa-fw fa-trash-o"></i></a>';
             $name = '<a href="files.php?path='.$path.DIRECTORY_SEPARATOR.$folder['name'].'">'.$folder['name'].'</a>'; 
@@ -48,9 +48,8 @@ class Fm {
             } else {
                 $media='';
             }
-            $edit = '<a ><i class="fa fa-fw fa-pencil"></i></a>&nbsp;';
-            //$move = '<a href=""><i class="icon-arrow-right"></i></a>&nbsp;';
-            $remove = '<a ><i class="fa fa-fw fa-trash-o"></i></a>'; 
+            $edit = '<a href="javascript:void(0)" class="modifyfile"><i class="fa fa-fw fa-pencil"></i></a>&nbsp;';
+            $remove = '<a href="javascript:void(0)"  class="deletefile"><i class="fa fa-fw fa-trash-o"></i></a>'; 
             echo '<tr>';
             if ($media!=''){
                 echo '<td><a href="'.self::getRelPath().$file['name'].'" data-toggle="lightbox" ><i class="fa fa-fw fa-file"></i></a> '.$file['name'].'</td>';
@@ -156,21 +155,21 @@ class Fm {
             if ($f == '.' || $f == '..' || $f == '.htaccess')
                 continue;
 
-            $e = $this->get_file_info("$path/$f", array('name', 'size', 'date', 'fileperms'));
+            $e = $this->getFileInfo("$path/$f", array('name', 'size', 'date', 'fileperms'));
 
             if (is_dir("$path/$f"))
                 $folders[] = array(
                     'name' => $e['name'],
                     'size' => '---',
                     'date' => date('Y-m-d H:i:s', $e['date']),
-                    'perm' => $this->unix_perm_string($e['fileperms'])
+                    'perm' => $this->unixPermString($e['fileperms'])
                 );
             else
                 $files[] = array(
                     'name' => $e['name'],
-                    'size' => $this->human_filesize($e['size']),
+                    'size' => $this->humanFilesize($e['size']),
                     'date' => date('Y-m-d H:i:s', $e['date']),
-                    'perm' => $this->unix_perm_string($e['fileperms'])
+                    'perm' => $this->unixPermString($e['fileperms'])
                 );
         }
 
@@ -344,17 +343,17 @@ class Fm {
     /**
      * Takes a file size in bytes and process a human readable filesize.
      */
-    private function human_filesize($bytes, $decimals = 2) {
+    private function humanFilesize($bytes, $decimals = 2) {
         $sz = 'BKMGTP';
         $factor = floor((strlen($bytes) - 1) / 3);
-        return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor];
+        return sprintf("%.{$decimals}f", (int)$bytes / pow(1024, (int)$factor)) . @$sz[(int)$factor];
     }
 
     /**
      * Taken from php.net, this function takes an permission value and builds a 
      * human_readable unix style permission string.
      */
-    private function unix_perm_string($perms) {
+    private function unixPermString($perms) {
         if (($perms & 0xC000) == 0xC000) {
             // Socket
             $info = 's';
@@ -409,7 +408,7 @@ class Fm {
      * Taken from code igniter. This function returns information about a given 
      * file.
      */
-    private function get_file_info($file, $returned_values = array('name', 'server_path', 'size', 'date')) {
+    private function getFileInfo($file, $returned_values = array('name', 'server_path', 'size', 'date')) {
         if ( ! file_exists($file))
         {
             return FALSE;
