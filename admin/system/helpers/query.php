@@ -291,7 +291,7 @@ class Query {
 
 	}
 	
-	public function query( $rows = '*', $query = ''){
+	public function doQuery( $rows = '*', $query = ''){
 		$this->getRecords($rows, $query);
 	}
 
