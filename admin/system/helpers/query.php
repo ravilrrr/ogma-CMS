@@ -193,7 +193,7 @@ class Query {
 		           $this->tableCache[(string)$key][(string)$opt]=(string)$val;
 		        }    
 		      }
-           
+           	
 		    $this->records = $this->tableCache;
             $this->queryresults = $this->tableCache;
 		    $this->tableCache = array();
@@ -201,6 +201,55 @@ class Query {
 			$this->generateCacheFile();
 			$this->getCacheFile(true);
 		}
+	}
+
+	public function updateCache($record, $option = "update"){
+		$file = ROOT . '/data/'.$this->table.'/'.$this->table.'.cache';
+		$tempCache = array();
+		if (file_exists($file)){
+			Debug::addLog(__("LOG_LOADCACHE"). $this->table.'.cache','info',true);
+			$thisfile = Filesystem::readFile($file);
+		    $data = simplexml_load_string($thisfile);
+		    $pages = $data->item;
+		    foreach ($pages as $page) {
+		      	if (strstr("slug", $this->tableOptions['cache'])){
+		      		$key=$page->slug;
+		      	} else {
+		      		$key=$page->id;
+		      	}
+		        
+		        $tempCache[(string)$key]=array();
+		        foreach ($page->children() as $opt=>$val) {
+		           $tempCache[(string)$key][(string)$opt]=(string)$val;
+		        }    
+		    }
+		} else {
+			$this->generateCacheFile();
+			$this->getCacheFile(true);
+		}
+
+		$id = $record['id'];
+
+		switch ($option) {
+			case 'delete':
+				// add delete code
+				unset($tempCache[(int)$id]);
+				break;
+			default:
+				$fields = explode("|", $this->tableOptions['cache']);
+				if (count($fields)>0) {
+					foreach ($fields as $field) {
+						$tempCache[(int)$id][$field] = $record[$field];
+					}
+				}
+				break;
+		}
+
+		$xml=Xml::arrayToXml($tempCache);
+		$ret =  Filesystem::writeFile(ROOT . '/data/'.$this->table.'/'.$this->table.'.cache',$xml);
+		$this->records = $tempCache;
+        $this->queryresults = $tempCache;
+		Debug::addLog(__("LOG_SAVECACHE"). $this->table.'.cache','info',true);
 	}
 
 	public function generateCacheFile(){
@@ -234,7 +283,6 @@ class Query {
 
 	                   
 				}
-
 				$xml=Xml::arrayToXml($cacheArray);
 				$ret =  Filesystem::writeFile(ROOT . '/data/'.$this->table.'/'.$this->table.'.cache',$xml);
 				Debug::addLog(__("LOG_WRITECACHE").' '.$this->table);
@@ -243,7 +291,7 @@ class Query {
 
 	}
 	
-	public function doQuery( $rows = '*', $query = ''){
+	public function query( $rows = '*', $query = ''){
 		$this->getRecords($rows, $query);
 	}
 
@@ -643,9 +691,7 @@ class Query {
 	}
 	// return top n records
 	public function top($num){
-		if (count($this->queryresults)>=$num){
-	        $this->queryresults = array_slice($this->queryresults, 0, $num, true);
-	    }
+        $this->queryresults = array_slice($this->queryresults, 0, $num, true);
         return $this;
     }
 
@@ -699,7 +745,6 @@ class Query {
 
 	public function dated($type, $start = 0, $finish = 0){
 		$tmpArray = array();
-		//debug::pa($this->queryresults);
 		$records = $this->queryresults;
 		$this->queryresults = array();
 		foreach ($records as $record) {
@@ -775,6 +820,7 @@ class Query {
 	            Core::addAlert(Form::showAlert('success', __('DELETESUCCESS')) ); 
 	            $this->generateCacheFile();
 	            $this->getCache();
+	            $this->updateCache(array('id'=>$id) , 'delete');
 	        } else {
 	            Core::addAlert( Form::showAlert('error', __('UNABLETODELETE')) ); 
 	        }
@@ -801,8 +847,7 @@ class Query {
         if ($ret){
             $this->incrementRecord($this->table);
             $this->tableOptions['id']++;
-            $this->generateCacheFile();
-            $this->getCache();
+            $this->updateCache($data, 'update');
             Core::addAlert( Form::showAlert('success', __("CREATED",array(":record"=>$data['id'],":type"=>"Record"))) );
             return true;
         } else {
@@ -828,8 +873,7 @@ class Query {
         $ret =  Filesystem::writeFile(ROOT . 'data/' . $this->table . '/'. $id .'.xml', $xml);
         if ($ret>0){
             Core::addAlert( Form::showAlert('success', __("UPDATED",array(":record"=>$id,":type"=>"Record"))) );
-            $this->generateCacheFile();
-            $this->getCache();
+            $this->updateCache($data, 'update');
             Debug::addUpdateLog(User::getUsername().__("UPDATEDRECORD").$this->table." / ".$id.".",User::getUsername());
             return true;
         } else {
@@ -892,7 +936,8 @@ class Query {
 			$parts = $this->parse($selector);
 			$key = trim($parts[1]);
 			$operator = trim($parts[2]);
-			$value =  trim($parts[3]);
+			$value = trim($parts[3]);
+
 			$records = $this->queryresults;
 			$this->queryresults = array();
 			$keys = explode("|", $key);
