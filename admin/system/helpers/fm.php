@@ -190,7 +190,7 @@ class Fm {
 
         // check if dir is writeable
         if (!is_writable(pathinfo($target, PATHINFO_DIRNAME))){
-         $this->error('target directory not writeable');   
+         $this->error(__("NOTWRITEABLE"));   
         }
 
        
@@ -198,9 +198,9 @@ class Fm {
            if (mkdir($target))
                $this->success('directory '.pathinfo($target, PATHINFO_FILENAME).' created');
            else
-               $this->error('mkdir failed');
+               $this->error(__("MKDIRFAILED"));
         } else {
-             $this->error('Folder already exists');
+             $this->error(__("FOLDEREXISTS"));
         }
            
        
@@ -277,66 +277,13 @@ class Fm {
     }
 
     public static function checkIfImage($file){
-        $type = pathinfo($file, PATHINFO_EXTENSION);
+        $type = strtolower(pathinfo($file, PATHINFO_EXTENSION));
         $images = array('jpg','jpeg','gif','png','tif');
         if (in_array($type, $images)){
             return true;
         } else {
             return false;
         }
-    }
-
-    /**
-     * Receive uploaded files and save them at target.
-     */
-    public function upload() {
-        // check path
-        $this->checkPath($_POST['path']);
-
-        // concat
-        $path = $this->base_path.$_POST['path'];
-
-        // check if files are set
-        if (!isset($_FILES['files']['name'][0]))
-            $this->error('no files uploaded');
-
-        // restructure
-        $files = array();
-        foreach ($_FILES['files']['name'] as $n => $v) {
-            $files[$n] = array(
-                'name'     => $_FILES['files']['name'][$n],
-                'type'     => $_FILES['files']['type'][$n],
-                'tmp_name' => $_FILES['files']['tmp_name'][$n],
-                'error'    => $_FILES['files']['error'][$n],
-                'size'     => $_FILES['files']['size'][$n]
-            );
-        }
-
-        // check upload state
-        foreach ($files as $f)
-            if ($f['error'] > 0)
-                $this->error($f['name'].' was not uploaded successfully');
-
-        // replace spaces in filename
-        foreach ($files as $n => $f)
-            $files[$n]['name'] = str_replace(' ', '-', $f['name']);
-
-        // check if files already exists
-        foreach ($files as $f)
-            if (file_exists($path.$f['name']))
-                $this->error('a file named '.$f['name'].' already exists');
-
-        // check if path is writable
-        if (!is_writable($path))
-            $this->error('target path is not writable');
-
-        // move files from tmp
-        foreach ($files as $f)
-            if (!move_uploaded_file($f['tmp_name'], $path.$f['name']))
-                $this->error('file '.$f['name'].' was not moved from tmp to destination');
-
-        // success
-        $this->success(count($files).' files have been uploaded');
     }
 
 
