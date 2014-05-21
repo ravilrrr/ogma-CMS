@@ -260,6 +260,10 @@ $record = $table->getFullRecord($id);
         $ogmaForm->startTabHeaders();
 
         $ogmaForm->createTabHeader(array('main'=>__("MAIN")),true);
+        $versions = Filesystem::hasVersions('menu',$id);
+        if (count($versions)>0){
+            if ($action=="edit") $ogmaForm->createTabHeader(array('versions'=>__("VERSIONS")));
+        }
         
         Actions::executeAction('menu-tab-header');
 
@@ -272,6 +276,11 @@ $record = $table->getFullRecord($id);
         $ogmaForm->createTabPane('main',true);
 
         $ogmaForm->displayField('post-menuname',__("NAME"),  'textlong', '','');
+
+        if (count($versions)>0){
+            if ($action=="edit") $ogmaForm->createTabPane('versions',false);
+            $ogmaForm->output(Filesystem::showVersions('menu', $id, $versions));
+        }
 
         Actions::executeAction('menu-tab-new');
 

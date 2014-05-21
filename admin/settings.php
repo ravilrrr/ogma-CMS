@@ -74,7 +74,7 @@ if ($action=='edit'){
 			
 			$ogmaForm->displayField('post-debug',__("DEBUG"),  'yesno', '',$settings['debug']);
 			$ogmaForm->displayField('post-cdn',__("CDN"),  'yesno', '',$settings['cdn']);
-			$ogmaForm->displayField('post-minify',__("MINIFY"),  'yesno', '',$settings['minify']);
+			$ogmaForm->displayField('post-history',__("VERSIONS"),  'yesno', '',$settings['history']);
 
 			$ogmaForm->createTabPane('maint',false);
 			$ogmaForm->displayField('post-maintenance',__("MAINTENANCE"),  'yesno', '',$settings['maintenance']);

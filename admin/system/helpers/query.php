@@ -843,6 +843,7 @@ class Query {
         $file = 'id';
         $data['id'] = $this->getRecordId($this->table);
         $xml=Xml::arrayToXml($data);
+    	
         $ret =  Filesystem::writeFile(ROOT . 'data/' . $this->table . '/'. $data['id'] .'.xml', $xml);
         if ($ret){
             $this->incrementRecord($this->table);
@@ -870,6 +871,7 @@ class Query {
 
     public function saveRecord($data = array(),$id){
         $xml=Xml::arrayToXml($data);
+        $ret =  Filesystem::addVersionFile($this->table, $id);
         $ret =  Filesystem::writeFile(ROOT . 'data/' . $this->table . '/'. $id .'.xml', $xml);
         if ($ret>0){
             Core::addAlert( Form::showAlert('success', __("UPDATED",array(":record"=>$id,":type"=>"Record"))) );

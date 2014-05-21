@@ -129,6 +129,12 @@ $record = $table->getFullRecord($id);
     $ogmaForm->startTabHeaders();
 
     $ogmaForm->createTabHeader(array('main'=>__("MAIN")),true);
+
+    $versions = Filesystem::hasVersions('components',$id);
+    if (count($versions)>0){
+        if ($action=="edit") $ogmaForm->createTabHeader(array('versions'=>__("VERSIONS")));
+    }
+
     $ogmaForm->createExtrasTab('components', $table->tableFields);
 
     Actions::executeAction('components-tab-header');
@@ -145,6 +151,12 @@ $record = $table->getFullRecord($id);
     $ogmaForm->displayField('post-active',__("ACTIVE"), 'yesno', '',$record['active']);
     $ogmaForm->displayField('post-content',__("CONTENT"),  'editor', array("rows"=>15,"codeedit"=>'true'),$record['content']);
     
+    if (count($versions)>0){
+        if ($action=="edit") $ogmaForm->createTabPane('versions',false);
+        $ogmaForm->output(Filesystem::showVersions('components', $id, $versions));
+    }
+
+
     $ogmaForm->createExtrasPane($record);
 
     Actions::executeAction('components-tab-new');

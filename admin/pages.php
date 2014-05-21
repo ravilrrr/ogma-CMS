@@ -153,6 +153,8 @@ if ($action=='edit' || $action=="create"){
   $clone = Core::getOption('clone');
   $child = Core::getOption('child');
 
+  Filesystem::hasVersions('pages',$id);
+
   if ($action=="create" && $child){
       $id=null;
   }
@@ -184,11 +186,16 @@ if ($action=='edit' || $action=="create"){
     if ($action=="create") $ogmaForm->addHeader(__("CREATEPAGE"));
     if ($action=="edit" && $clone) $ogmaForm->addHeader(__("CLONEPAGE"));
     
+    
     $ogmaForm->startTabHeaders();
 
     $ogmaForm->createTabHeader(array('main'=>__("MAIN")),true);
     $ogmaForm->createTabHeader(array('options'=>__("OPTIONS")));
     $ogmaForm->createTabHeader(array('meta'=>__("META")));
+    $versions = Filesystem::hasVersions('pages',$id);
+    if (count($versions)>0){
+        if ($action=="edit" && !$clone) $ogmaForm->createTabHeader(array('versions'=>__("VERSIONS")));
+    }
 
     $ogmaForm->createExtrasTab('pages', $table->tableFields);
     
@@ -224,6 +231,11 @@ if ($action=='edit' || $action=="create"){
     $ogmaForm->displayField('post-metad',__("METADESC"),  'textarea', array('rows'=>'3'),$record['metad']);
     $ogmaForm->displayField('post-metak',__("METAKEYWORDS"), 'textlong', array('tags'=>true), $record['metak']);
     $ogmaForm->displayField('post-robots',__("SEARCHENGINEROBOTS"),  $table->tableFields['robots'], array('index, follow','noindex, nofollow'),$record['robots']);
+
+    if (count($versions)>0){
+        if ($action=="edit" && !$clone) $ogmaForm->createTabPane('versions',false);
+        $ogmaForm->output(Filesystem::showVersions('pages', $id, $versions));
+    }
 
     $ogmaForm->createExtrasPane($record);
 

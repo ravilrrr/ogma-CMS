@@ -150,6 +150,11 @@ if ($action=='edit' || $action=="create"){
 
     $ogmaForm->createTabHeader(array('main'=>'Main'),true);
     
+    $versions = Filesystem::hasVersions('routes',$id);
+    if (count($versions)>0){
+        if ($action=="edit") $ogmaForm->createTabHeader(array('versions'=>__("VERSIONS")));
+    }
+
     Actions::executeAction('routes-tab-header');
 
     $ogmaForm->endTabHeaders();
@@ -167,6 +172,11 @@ if ($action=='edit' || $action=="create"){
     
     $ogmaForm->displayField('post-id','ID', 'hidden', '',$record['id']);
     
+    if (count($versions)>0){
+        if ($action=="edit") $ogmaForm->createTabPane('versions',false);
+        $ogmaForm->output(Filesystem::showVersions('routes', $id, $versions));
+    }
+
     Actions::executeAction('routes-tab-new');
 
     $ogmaForm->endTabs();

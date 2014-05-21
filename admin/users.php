@@ -183,8 +183,10 @@ if ($action=='edit' || $action=="create"){
     $ogmaForm->startTabHeaders();
 
     $ogmaForm->createTabHeader(array('main'=>__("MAIN")),true);
-    if (User::isAdmin() && $record['role']=="author"){
-      //$ogmaForm->createTabHeader(array('perms'=>__("PERMISSIONS")));
+
+    $versions = Filesystem::hasVersions('users',$id);
+    if (count($versions)>0){
+        if ($action=="edit") $ogmaForm->createTabHeader(array('versions'=>__("VERSIONS")));
     }
     $ogmaForm->createExtrasTab('users', $table->tableFields);
 
@@ -233,6 +235,11 @@ if ($action=='edit' || $action=="create"){
     }
 
     $ogmaForm->createExtrasPane($record);
+
+    if (count($versions)>0){
+        if ($action=="edit") $ogmaForm->createTabPane('versions',false);
+        $ogmaForm->output(Filesystem::showVersions('users', $id, $versions));
+    }
 
     Actions::executeAction('users-tab-new');
 

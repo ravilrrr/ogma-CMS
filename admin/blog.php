@@ -140,6 +140,12 @@ $record = $table->getFullRecord($id);
     $ogmaForm->createTabHeader(array('main'=>__("MAIN")),true);
     $ogmaForm->createTabHeader(array('options'=>__("OPTIONS")));
     $ogmaForm->createTabHeader(array('meta'=>__("META")));
+
+    $versions = Filesystem::hasVersions('blog',$id);
+    if (count($versions)>0){
+        if ($action=="edit") $ogmaForm->createTabHeader(array('versions'=>__("VERSIONS")));
+    }
+
     $ogmaForm->createExtrasTab('blog', $table->tableFields);
 
     Actions::executeAction('blog-tab-header');
@@ -172,6 +178,11 @@ $record = $table->getFullRecord($id);
     $ogmaForm->displayField('post-metad',__('METADESC'), 'textarea', array('rows'=>3),$record['metad']);
     $ogmaForm->displayField('post-metak',__('METAKEYWORDS'),  'textlong',  array('tags'=>true) ,$record['metak']);
 		
+    if (count($versions)>0){
+        if ($action=="edit") $ogmaForm->createTabPane('versions',false);
+        $ogmaForm->output(Filesystem::showVersions('blog', $id, $versions));
+    }
+
     $ogmaForm->createExtrasPane($record);
 
     Actions::executeAction('blog-tab-new');

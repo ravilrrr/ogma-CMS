@@ -121,6 +121,12 @@ $record = $table->getFullRecord($id);
     $ogmaForm->startTabHeaders();
 
     $ogmaForm->createTabHeader(array('main'=>__("MAIN")),true);
+
+    $versions = Filesystem::hasVersions('snippets',$id);
+    if (count($versions)>0){
+        if ($action=="edit") $ogmaForm->createTabHeader(array('versions'=>__("VERSIONS")));
+    }
+
     $ogmaForm->createExtrasTab('snippets', $table->tableFields);
 
     Actions::executeAction('snippets-tab-header');
@@ -137,6 +143,11 @@ $record = $table->getFullRecord($id);
     $ogmaForm->displayField('post-active',__("ACTIVE"), 'yesno', '',$record['active']);
     $ogmaForm->displayField('post-content',__("CONTENT"), 'editor', '15',$record['content']);
     
+    if (count($versions)>0){
+        if ($action=="edit") $ogmaForm->createTabPane('versions',false);
+        $ogmaForm->output(Filesystem::showVersions('snippets', $id, $versions));
+    }
+
     $ogmaForm->createExtrasPane($record);
 
     Actions::executeAction('snippets-tab-new');

@@ -325,6 +325,14 @@ $lang = array
     "FOLDERNAME" =>         "Folder Name",
     "ADDTOCACHE" =>         "Add field to Cache",
     "ADDMEDIA" =>           "Add to Media",
-    "ADMIN" =>              "Admin Panel"
+    "ADMIN" =>              "Admin Panel", 
+    "VERSIONS" =>           "History",
+    "DIFF" =>               "Diff",
+
+    // file manager
+    "NOTWRITABLE" =>        "target directory not writeable",
+    "MKDIRFAILED" =>        "MKDIR Failed",
+    "FOLDEREXISTS" =>       "Folder already exists."
+
 )
 ?>

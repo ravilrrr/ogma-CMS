@@ -137,6 +137,12 @@ $record = $table->getFullRecord($id);
 
 
         $ogmaForm->createTabHeader(array('main'=>__("MAIN")),true);
+
+        $versions = Filesystem::hasVersions('media',$id);
+        if (count($versions)>0){
+            if ($action=="edit") $ogmaForm->createTabHeader(array('versions'=>__("VERSIONS")));
+        }
+
         $ogmaForm->createExtrasTab('media', $table->tableFields);
 
         Actions::executeAction('media-tab-header');
@@ -160,6 +166,11 @@ $record = $table->getFullRecord($id);
         $ogmaForm->displayField('post-description',__("DESCRIPTION"),  'textarea',  array('rows'=>3),$record['description']);
         
         $ogmaForm->createExtrasPane($record);
+
+        if (count($versions)>0){
+            if ($action=="edit") $ogmaForm->createTabPane('versions',false);
+            $ogmaForm->output(Filesystem::showVersions('media', $id, $versions));
+        }
 
         Actions::executeAction('media-tab-new');
 

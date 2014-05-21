@@ -185,6 +185,11 @@ $record = $table->getFullRecord($id);
     $ogmaForm->startTabHeaders();
 
     $ogmaForm->createTabHeader(array('main'=>'Main'),true);
+
+    $versions = Filesystem::hasVersions('customfields',$id);
+    if (count($versions)>0){
+        if ($action=="edit") $ogmaForm->createTabHeader(array('versions'=>__("VERSIONS")));
+    }
     
     Actions::executeAction('customfields-tab-header');
 
@@ -214,6 +219,12 @@ $record = $table->getFullRecord($id);
     
     $ogmaForm->displayField('post-id','ID', 'hidden', '',$record['id']);
     
+    if (count($versions)>0){
+        if ($action=="edit") $ogmaForm->createTabPane('versions',false);
+        $ogmaForm->output(Filesystem::showVersions('customfields', $id, $versions));
+    }
+
+
     Actions::executeAction('customfields-tab-new');
 
     $ogmaForm->endTabs();
