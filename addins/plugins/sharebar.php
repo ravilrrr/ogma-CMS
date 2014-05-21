@@ -47,7 +47,7 @@ class Sharebar {
         $title = Core::$page['title'];
         
         $settings = Plugins::getSettings(ROOT . 'addins/plugins/sharebar/data/settings.xml');
-        echo '<aside id="sharebar">Share ';
+        echo '<aside id="sharebar">';
         if ($settings['facebook']){
             echo '<a class="btn btn-default '.$size.'" href="http://www.facebook.com/sharer.php?u='.$url.'&t='.$title.'"><i class="fa fa-facebook fa-lg fb"></i></a>';
         }
