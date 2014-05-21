@@ -835,3 +835,7 @@ em.error{
 .panel-heading a.collapsed:after {
     content: "\e080";
 }
+
+.bootstrap-tagsinput{
+    width:100%;
+}
