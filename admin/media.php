@@ -98,8 +98,12 @@ if ($action=='view'){
    ?>
     <?php 
 
+      $table->reload();
+      if (isset($_GET['filter'])){
+        $table->find('tag = '.$_GET['filter']);
+      }
       $totalRecords = $table->count();
-      $table->getCache();
+
       $records = $table->order($sort,$dir)->range($page*15,15)->get();
 
       $table->htmlTable(
@@ -113,11 +117,12 @@ if ($action=='view'){
           ),
         array('widths'=>'5|25|25|25|10'), true
       );
+
        Query::doPagination($page,$totalRecords);
 
       ?>
-	
-	</div>
+  
+  </div>
 <?php
 } 
 
