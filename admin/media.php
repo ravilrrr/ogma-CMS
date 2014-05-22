@@ -78,7 +78,7 @@ if ($action=='view'){
   <?php 
   Core::getAlerts();
   ?>
-  <legend>View media</legend>
+  <legend><?php echo __("VIEWMEDIA"); ?></legend>
    <div class="btn-group" style="padding-bottom:15px;">
     <button class="btn btn-primary" onclick="location.href='media.php?action=create'"><span class="glyphicon glyphicon-plus"></span> <?php echo __("CREATENEW",array(":type"=>"Media")); ?></button>
    </div>

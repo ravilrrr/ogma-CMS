@@ -328,6 +328,7 @@ $lang = array
     "ADMIN" =>              "Admin Panel", 
     "VERSIONS" =>           "History",
     "DIFF" =>               "Diff",
+    "VIEWMEDIA" =>          "View Media",
 
     // file manager
     "NOTWRITABLE" =>        "target directory not writeable",
