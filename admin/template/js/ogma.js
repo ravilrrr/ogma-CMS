@@ -29,7 +29,8 @@ jQuery(document).ready(function ()
 	
 	$('#filter').on('change',function(){
 		
-		var url = document.URL
+		var url = document.URL;
+		url = url.replace('deleterecord','view');
 		var newAdditionalURL = "";
 		var tempArray = url.split("?");
 		var baseURL = tempArray[0];
@@ -39,7 +40,7 @@ jQuery(document).ready(function ()
 		{
 		var tempArray = aditionalURL.split("&");
 		for ( var i in tempArray ){
-		    if(tempArray[i].indexOf("filter") == -1){
+		    if(tempArray[i].indexOf("filter") == -1){ 
 		            newAdditionalURL += temp+tempArray[i];
 		                temp = "&";
 		            }
