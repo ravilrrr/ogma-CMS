@@ -154,7 +154,6 @@ class Security {
         if ($length > 0) {
             $rand_id = "";
             for ($i = 1; $i <= $length; $i++) {
-                mt_srand((double) microtime() * 1000000);
                 $num = mt_rand(1, 62);
                 $rand_id .= self::assignRandValue($num);
             }
