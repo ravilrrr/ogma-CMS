@@ -436,7 +436,8 @@ class Core {
 		echo '<body><div style="width:300px; margin:250px auto 0px; font-family:Arial, Helevtica, Sans-serif; font-weight:normal;">';
 		
 		$content = Utils::safe_strip_decode(Core::$site['maintmessage']);
-        $content = Markdown($content);
+        $Markdown = new ParsedownExtra();
+		$content =  $Markdown->text($content);
         $content = Filters::execFilter('content',$content);
         echo $content;
 		echo '</div>';

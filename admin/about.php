@@ -85,9 +85,7 @@
 		$output .= 'GetSimple CMS - http://get-simple.info <br/>';
 		$output .= 'Bootstrap Datepicker by Stefan Petre - http://www.eyecon.ro/bootstrap-datepicker <br/>';
 		$output .= 'Bootstrap Toggle by Min HUr - The New York Times Company <br/>';
-		$output .= 'Markdown Extra by Michel Fortin - http://michelf.ca/projects/php-markdown/ <br/>';
-		$output .= 'Markdown by John Gruber - http://daringfireball.net/projects/markdown/  <br/>';
-		$output .= 'PHP Error by Joseph Lenton - http://phperror.net/   <br/>';
+		$output .= 'Parsedown by Emanuil Rusev - http://parsedown.org/ <br/>';
 		$output .= 'Bootstrap by Twitter - http://getbootstrap.com <br/>';
 		$output .= 'Font Awesome by Dave Gandy - http://fontawesome.io <br/>';
 		$output .= 'Bigmodal by Andrew Rowls - https://github.com/eternicode/bootstrap-bigmodal <br/>';

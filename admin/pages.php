@@ -192,6 +192,7 @@ if ($action=='edit' || $action=="create"){
     $ogmaForm->createTabHeader(array('main'=>__("MAIN")),true);
     $ogmaForm->createTabHeader(array('options'=>__("OPTIONS")));
     $ogmaForm->createTabHeader(array('meta'=>__("META")));
+    
     $versions = Filesystem::hasVersions('pages',$id);
     if (count($versions)>0){
         if ($action=="edit" && !$clone) $ogmaForm->createTabHeader(array('versions'=>__("VERSIONS")));

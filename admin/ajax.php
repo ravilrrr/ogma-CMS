@@ -150,7 +150,8 @@ if (User::isLoggedIn()==true){
 	    		$content = '';
 	    		if (file_exists($readme)){
 	    			$content = file_get_contents($readme);
-	    			$content = Markdown($content);
+	    			$Markdown = new ParsedownExtra();
+					$content =  $Markdown->text($content);
 	    		}
 	    		echo $content;
 	    		break;
@@ -159,7 +160,8 @@ if (User::isLoggedIn()==true){
 	    		$content = $_REQUEST['value'];
 	    		$page->pageFields['content'] = $content;
 		        $content = Utils::safe_strip_decode($content);
-		        $content = Markdown($content);
+		        $Markdown = new ParsedownExtra();
+				$content =  $Markdown->text($content);
 		        $content = Filters::execFilter('content',$content);
 		        echo $content;
 		        break;
